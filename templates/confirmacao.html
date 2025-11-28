@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição realizada com sucesso! - Rio+Elas</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+        .sucesso-container {
+            max-width: 600px;
+            margin: 48px auto 0 auto;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+            padding: 44px 36px 36px 36px;
+            text-align: center;
+            position: relative;
+        }
+        .checkmark {
+            background: #e0f7e9;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px auto;
+        }
+        .checkmark svg {
+            width: 40px;
+            height: 40px;
+            color: #43a047;
+        }
+        .sucesso-container h2 {
+            font-size: 2em;
+            font-weight: 900;
+            color: #222;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+        .protocolo-box {
+            background: #f7fafd;
+            border-radius: 16px;
+            border: 2px solid #e3e7ee;
+            margin: 24px 0 18px 0;
+            padding: 18px 22px;
+        }
+        .protocolo-label {
+            color: #7a7a7a;
+            font-size: 1.08em;
+            margin-bottom: 6px;
+        }
+        .protocolo-numero {
+            color: #1976d2;
+            font-size: 1.3em;
+            font-weight: 900;
+            word-break: break-all;
+        }
+        .btns {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .btn-whatsapp, .btn-inicio {
+            min-width: 200px;
+            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 18px 40px;
+            font-size: 1.18em;
+            font-weight: 800;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            letter-spacing: 0.5px;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            outline: none;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-inicio:hover {
+            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .btn-whatsapp:hover {
+            background: #e3f0ff;
+            color: #0072ff;
+        }
+        .proximos-passos {
+            background: #f7fafd;
+            border-radius: 16px;
+            border: 2px solid #e3e7ee;
+            margin-top: 32px;
+            padding: 18px 22px;
+            text-align: left;
+        }
+        .proximos-passos b {
+            color: #222;
+        }
+        @media (max-width: 600px) {
+            .sucesso-container {
+                padding: 18px 6px 12px 6px;
+            }
+            .sucesso-container h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sucesso-container">
+        <div class="checkmark">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+        </div>
+        <h2>Inscrição realizada com sucesso! <span style="font-size:1.2em;">🎉</span></h2>
+        <p>Você está cada vez mais perto de transformar sua vida através da beleza!</p>
+        <div class="protocolo-box">
+            <div class="protocolo-label">Seu número de protocolo:</div>
+            <div class="protocolo-numero">{{ protocolo }}</div>
+            <div style="color:#7a7a7a;font-size:0.98em;margin-top:8px;">Guarde este número para acompanhar sua inscrição</div>
+        </div>
+        <div style="margin-bottom:18px;">Em breve entraremos em contato via WhatsApp no número (61) 99252-0720 com mais informações sobre o curso.<br>Fique atenta(o) às mensagens e ligações!</div>
+        <div class="btns">
+            <a class="btn-whatsapp" href="https://wa.me/?text=Minha%20inscri%C3%A7%C3%A3o%20no%20Rio%2BElas%20foi%20realizada!%20Protocolo:%20{{ protocolo }}" target="_blank">&#128241; Compartilhar no WhatsApp</a>
+            <a class="btn-inicio" href="/">Voltar ao Início</a>
+        </div>
+        <div class="proximos-passos">
+            <b>Próximos Passos:</b>
+            <ol>
+                <li>Aguarde nosso contato via WhatsApp</li>
+                <li>Prepare sua documentação (RG, CPF e comprovante de residência)</li>
+                <li>Fique atenta(o) à data de início do curso</li>
+                <li>Compareça no local escolhido no dia e horário marcados</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - Rio+Elas</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+                .form-group label {
+                    font-weight: 400;
+                    color: #222;
+                    margin-bottom: 8px;
+                    font-size: 1.08em;
+                    text-align: right;
+                    display: block;
+                    width: 100%;
+                }
+        body {
+            background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+        .inscricao-container {
+            max-width: 480px;
+            margin: 48px auto 0 auto;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+            padding: 44px 32px 32px 32px;
+            text-align: center;
+            position: relative;
+        }
+        .inscricao-container h2 {
+            font-size: 2.2em;
+            font-weight: 900;
+            color: #222;
+            margin-bottom: 28px;
+            letter-spacing: -1px;
+        }
+        .inscricao-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            align-items: stretch;
+            justify-content: center;
+            width: 100%;
+        }
+        /* INPUTS E SELECTS CENTRALIZADOS */
+        .inscricao-container input, .inscricao-container select {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            max-width: 420px;
+            min-width: 260px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1.5px solid #d0d7e2;
+            font-size: 1.08em;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #f7fafd;
+            color: #222;
+            transition: border 0.2s;
+            outline: none;
+        }
+        .inscricao-container input:focus, .inscricao-container select:focus {
+            border: 1.5px solid #2196f3;
+        }
+        /* BOTÕES PARALELEPÍPEDO */
+        .btn-voltar, .btn-proximo {
+            min-width: 220px;
+            min-height: 44px;
+            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            padding: 12px 32px;
+            font-size: 1.12em;
+            font-weight: 800;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            letter-spacing: 0.5px;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            outline: none;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        .btn-voltar {
+            background: #fff;
+            color: #2196f3;
+            border: 1.5px solid #e3e7ee;
+        }
+        .btn-proximo {
+            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+        }
+        .btn-proximo:hover, .btn-voltar:hover {
+            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
+            color: #fff;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .inscricao-container select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%232196f3" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 22px 22px;
+        }
+        @media (max-width: 600px) {
+            .inscricao-container {
+                padding: 18px 6px 12px 6px;
+            }
+            .inscricao-container h2 {
+                font-size: 1.3em;
+            }
+            /* Removido bloco duplicado de .inscricao-container input, .inscricao-container select para evitar conflito de altura */
+            .form-btns {
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="inscricao-container">
+        <div class="progress-bar">
+            <div class="progress" style="width: 33%;"></div>
+        </div>
+        <div class="inscricao-numero">🎉 Você é a inscrição nº <b>361</b>!</div>
+        <h2>Dados Pessoais</h2>
+        <p class="inscricao-sub">Preencha seus dados para começarmos sua inscrição</p>
+        <form id="form-inscricao" autocomplete="off">
+            <div class="form-group">
+                <label for="nome">Nome Completo *</label>
+                <input type="text" id="nome" placeholder="Digite seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF *</label>
+                <input type="text" id="cpf" placeholder="000.000.000-00">
+                <span class="error-msg" style="display:none;">CPF inválido</span>
+            </div>
+            <div class="form-group">
+                <label for="nascimento">Data de Nascimento *</label>
+                <input type="date" id="nascimento" placeholder="dd/mm/aaaa">
+                <span class="error-msg" style="display:none;">Idade mínima: 18 anos</span>
+            </div>
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp *</label>
+                <input type="tel" id="whatsapp" placeholder="(00) 00000-0000">
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" placeholder="seu@email.com">
+                <span class="error-msg" style="display:none;">Email inválido</span>
+            </div>
+            <div class="form-btns">
+                <button type="button" class="btn-voltar">&lt; VOLTAR</button>
+                <button type="submit" class="btn-proximo">PRÓXIMO <span style="font-size:1.2em;vertical-align:middle;">&#8594;</span></button>
+            </div>
+        </form>
+        <script>
+        document.getElementById('form-inscricao').onsubmit = function(e) {
+            e.preventDefault();
+            window.location.href = '/endereco';
+        };
+        document.querySelector('.btn-voltar').onclick = function() {
+            window.location.href = '/';
+        };
+        </script>
+    </div>
+<style>
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: #e3e7ee;
+        border-radius: 8px;
+        margin-bottom: 24px;
+        overflow: hidden;
+    }
+    .progress {
+        height: 100%;
+        background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+        border-radius: 8px;
+        transition: width 0.3s;
+    }
+    .inscricao-numero {
+        color: #2196f3;
+        font-size: 1.1em;
+        margin-bottom: 18px;
+        font-weight: 500;
+    }
+    .inscricao-container h2 {
+        font-size: 2em;
+        font-weight: 900;
+        color: #222;
+        margin-bottom: 8px;
+        letter-spacing: -1px;
+    }
+    .inscricao-sub {
+        color: #7a7a7a;
+        font-size: 1.08em;
+        margin-bottom: 24px;
+    }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin-bottom: 24px;
+            width: 100%;
+        }
+    .form-group label {
+        font-weight: 400;
+        color: #222;
+        margin-bottom: 6px;
+        font-size: 1.08em;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+    /* Removido bloco duplicado de .form-group input para evitar sobrescrever tamanho dos inputs */
+    .input-error {
+        border: 1.5px solid #ff4d4f !important;
+        background: #fff0f0 !important;
+    }
+    .error-msg {
+        color: #ff4d4f;
+        font-size: 0.98em;
+        margin-top: 4px;
+        font-weight: 500;
+        display: block;
+    }
+        .form-btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            gap: 32px;
+            width: 100%;
+        }
+        /* Removido bloco duplicado de .btn-voltar, .btn-proximo para evitar conflito de tamanho */
+        .btn-voltar {
+            background: #fff;
+            color: #2196f3;
+            border: 1.5px solid #e3e7ee;
+        }
+        .btn-proximo {
+            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+        }
+        .btn-proximo:hover, .btn-voltar:hover {
+            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
+            color: #fff;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+            transform: translateY(-2px) scale(1.04);
+        }
+    @media (max-width: 600px) {
+            .inscricao-container {
+                padding: 18px 6px 12px 6px;
+            }
+            .inscricao-container h2 {
+                font-size: 1.3em;
+            }
+            .inscricao-container input, .inscricao-container select {
+                width: 100%;
+                min-width: 0;
+                max-width: 98vw;
+            }
+            .form-btns {
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
+            }
+    }
+</style>
+    </body>

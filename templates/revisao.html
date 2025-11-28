@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisar Inscrição - Rio+Elas</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+        .revisao-container {
+            max-width: 700px;
+            margin: 48px auto 0 auto;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+            padding: 44px 36px 36px 36px;
+            position: relative;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e3e7ee;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            border-radius: 8px;
+            transition: width 0.3s;
+            width: 100%;
+        }
+        .revisao-container h2 {
+            font-size: 2em;
+            font-weight: 900;
+            color: #222;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+        .revisao-sub {
+            color: #7a7a7a;
+            font-size: 1.08em;
+            margin-bottom: 24px;
+        }
+        .info-box {
+            background: #f7fafd;
+            border-radius: 16px;
+            border: 2px solid #e3e7ee;
+            margin-bottom: 18px;
+            padding: 18px 22px;
+        }
+        .info-title {
+            font-weight: 700;
+            color: #2196f3;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .info-title svg {
+            width: 20px;
+            height: 20px;
+        }
+        .info-content {
+            color: #222;
+            font-size: 1.08em;
+        }
+        .confirmacao-box {
+            background: #f7fafd;
+            border-radius: 16px;
+            border: 2px solid #e3e7ee;
+            margin-bottom: 18px;
+            padding: 18px 22px;
+        }
+        .confirmacao-box label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 1.05em;
+            color: #222;
+            cursor: pointer;
+        }
+        .form-btns {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 18px;
+            gap: 12px;
+        }
+        .btn-voltar, .btn-finalizar {
+            min-width: 200px;
+            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 18px 40px;
+            font-size: 1.18em;
+            font-weight: 800;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            letter-spacing: 0.5px;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            outline: none;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        .btn-finalizar:disabled {
+            background: #b3d8f7;
+            color: #fff;
+            cursor: not-allowed;
+        }
+        .btn-finalizar:hover:enabled {
+            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .btn-voltar:hover {
+            background: #e3f0ff;
+            color: #0072ff;
+        }
+        @media (max-width: 600px) {
+            .revisao-container {
+                padding: 18px 6px 12px 6px;
+            }
+            .revisao-container h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="revisao-container">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div style="color:#43a047;font-weight:600;margin-bottom:18px;">&#127881; Formulário completo! Revise seus dados antes de finalizar.</div>
+        <h2>Revise suas Informações</h2>
+        <p class="revisao-sub">Confira se está tudo certo antes de finalizar</p>
+        <div class="info-box">
+            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a7.5 7.5 0 0 1 13 0"/></svg> Dados Pessoais</div>
+            <div class="info-content">
+                <b>Nome:</b> LUCAS LUAN PEREIRA VIEIRA<br>
+                <b>CPF:</b> 081.313.361-07<br>
+                <b>Data de Nascimento:</b> 23/03/2005<br>
+                <b>Email:</b> lucasluan8600@gmail.com<br>
+                <b>WhatsApp:</b> (61) 99252-0720
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Endereço</div>
+            <div class="info-content">
+                Qno, 20<br>
+                Conjunto 21<br>
+                Ceilândia - Brasília/DF<br>
+                CEP: 72261-221
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 9h8M8 13h6"/></svg> Perfil</div>
+            <div class="info-content">
+                <b>Gênero:</b> <br>
+                <b>LGBTQIA+:</b> Não<br>
+                <b>Funcionário da Prefeitura:</b> Não<br>
+                <b>Renda Familiar:</b> <br>
+                <b>Tem filhos:</b> Não
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Curso Escolhido</div>
+            <div class="info-content">
+                <b>Curso:</b> Trancista<br>
+                <b>Local:</b> Central do Trabalhador JPA<br>
+                <b>Turma:</b> 05, 06, 07/01/26 | 09h-16h
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c2.54 0 4.5 2.46 4.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Motivação</div>
+            <div class="info-content">
+                <b>Como conheceu:</b>
+            </div>
+        </div>
+        <div class="confirmacao-box">
+            <label><input type="checkbox" id="confirma-dados">&nbsp;Confirmo que todas as informações fornecidas são verdadeiras e estou de acordo com os termos de participação do Projeto Rio +Elas. Autorizo o uso dos meus dados para fins de inscrição e contato relacionado ao curso.<br><br>
+            Também autorizo o uso da minha imagem para divulgação nos canais de comunicação e redes sociais do projeto e da Prefeitura do Rio de Janeiro.<br><br>
+            Estou ciente de que o certificado de conclusão só será emitido para alunos considerados aptos, após avaliação do professor responsável pelo curso.</label>
+        </div>
+        <div class="form-btns">
+            <button type="button" class="btn-voltar">&lt; Voltar</button>
+            <button type="button" class="btn-finalizar" id="btn-finalizar" disabled>Finalizar Inscrição</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('confirma-dados').addEventListener('change', function() {
+            document.getElementById('btn-finalizar').disabled = !this.checked;
+        });
+        document.getElementById('btn-finalizar').onclick = function() {
+            window.location.href = '/confirmacao';
+        };
+    </script>
+</body>
+</html>

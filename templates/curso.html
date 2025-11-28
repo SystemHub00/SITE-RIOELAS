@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha do Curso - Rio+Elas</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+        .curso-container {
+            max-width: 600px;
+            margin: 48px auto 0 auto;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+            padding: 44px 36px 36px 36px;
+            text-align: left;
+            position: relative;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e3e7ee;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            border-radius: 8px;
+            transition: width 0.3s;
+            width: 99%;
+        }
+        .curso-container h2 {
+            font-size: 2em;
+            font-weight: 900;
+            color: #222;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+        .curso-sub {
+            color: #7a7a7a;
+            font-size: 1.08em;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 6px;
+            font-size: 1.08em;
+        }
+        .form-group select {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            max-width: 420px;
+            min-width: 260px;
+            padding: 18px 16px;
+            border-radius: 12px;
+            border: 1.5px solid #2196f3;
+            font-size: 1.08em;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #f7fafd;
+            color: #222;
+            transition: border 0.2s;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%232196f3" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 22px 22px;
+        }
+        .form-btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            gap: 12px;
+        }
+        .btn-voltar, .btn-proximo {
+            min-width: 200px;
+            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 18px 40px;
+            font-size: 1.18em;
+            font-weight: 800;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            letter-spacing: 0.5px;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            outline: none;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        .btn-proximo:hover {
+            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .btn-voltar:hover {
+            background: #e3f0ff;
+            color: #0072ff;
+        }
+        @media (max-width: 600px) {
+            .curso-container {
+                padding: 18px 6px 12px 6px;
+            }
+            .curso-container h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="curso-container">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <h2>Escolha do Curso</h2>
+        <p class="curso-sub">Selecione o local, curso e turma de sua preferência</p>
+        <form id="form-curso" autocomplete="off">
+            <div class="form-group">
+                <label for="local">Local do Curso *</label>
+                <select id="local">
+                    <option>Selecione o local</option>
+                    <option>Unidade Centro</option>
+                    <option>Unidade Zona Norte</option>
+                    <option>Unidade Zona Oeste</option>
+                </select>
+            </div>
+            <div class="form-btns">
+                <button type="button" class="btn-voltar">&lt; Voltar</button>
+                <button type="submit" class="btn-proximo">Próximo <span style="font-size:1.2em;vertical-align:middle;">&#8594;</span></button>
+            </div>
+        </form>
+    </div>
+    <script>
+                document.querySelector('.btn-voltar').onclick = function() {
+                    window.location.href = '/endereco';
+                };
+        document.getElementById('form-curso').onsubmit = function(e) {
+            e.preventDefault();
+            window.location.href = '/revisao';
+        };
+    </script>
+</body>
+</html>

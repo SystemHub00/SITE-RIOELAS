@@ -1,0 +1,228 @@
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
+    color: #222;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.main-header {
+    background: #fff;
+    border-bottom: 4px solid #1976d2;
+    padding: 24px 0 0 0;
+    text-align: center;
+    box-shadow: 0 4px 24px 0 rgba(25, 118, 210, 0.07);
+}
+.header-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 10px;
+}
+.main-header .logo {
+    max-width: 120px;
+    margin-bottom: 0;
+}
+.logo-prefeitura-topo {
+    max-width: 180px;
+    margin-bottom: 0;
+}
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.main-header nav ul li a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    transition: color 0.2s, text-shadow 0.2s;
+    text-shadow: 0 1px 0 #e3f0ff;
+}
+.main-header nav ul li a:hover {
+    color: #43a047;
+    text-shadow: 0 2px 8px #b3e5c7;
+}
+.hero-section {
+    background: linear-gradient(120deg, #e3f0ff 60%, #f7fafd 100%);
+    color: #222;
+    padding: 48px 20px 32px 20px;
+    text-align: center;
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 8px 32px 0 rgba(25, 118, 210, 0.07);
+    position: relative;
+    overflow: hidden;
+}
+.hero-section h1 {
+    font-size: 3em;
+    font-weight: 900;
+    margin-bottom: 18px;
+    letter-spacing: -1px;
+    color: #1976d2;
+    text-shadow: 0 2px 8px #e3f0ff;
+}
+.hero-section p {
+    font-size: 1.25em;
+    color: #4a4a4a;
+    margin-bottom: 28px;
+}
+.destaque {
+    color: #43a047;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.hero-section .benefits {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.hero-section .benefit {
+    background: #fff;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-size: 1.08em;
+    font-weight: 600;
+    color: #1976d2;
+    box-shadow: 0 4px 16px rgba(25, 118, 210, 0.07);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid #43a04722;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+.hero-section .benefit:hover {
+    box-shadow: 0 8px 32px #b3e5c7;
+    border: 2px solid #43a047;
+}
+.icon-svg {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+main {
+    max-width: 900px;
+    margin: 30px auto 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 30px;
+}
+.ganhos-section {
+    margin-top: 40px;
+    text-align: center;
+}
+.ganhos-box {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    padding: 36px 24px 24px 24px;
+    max-width: 800px;
+    margin: 0 auto 32px auto;
+}
+.ganhos-box h2 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.ganhos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 0;
+    font-size: 1.15em;
+    color: #4a4a4a;
+}
+.ganhos-list li {
+    margin-bottom: 16px;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.cta-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #1976d2 0%, #43a047 100%);
+    color: #fff;
+    padding: 18px 48px;
+    border-radius: 32px;
+    font-size: 1.25em;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    margin-top: 18px;
+    box-shadow: 0 4px 16px rgba(25, 118, 210, 0.10);
+    letter-spacing: 0.5px;
+    border: none;
+    outline: none;
+}
+.cta-btn:hover {
+    background: linear-gradient(90deg, #43a047 0%, #1976d2 100%);
+    box-shadow: 0 8px 32px #b3e5c7;
+    transform: translateY(-2px) scale(1.03);
+}
+.cursos-section {
+    text-align: center;
+    margin-top: 24px;
+}
+.cursos-title {
+    font-size: 1.15em;
+    color: #222;
+    margin-bottom: 8px;
+}
+.cursos-destaque {
+    font-size: 1.35em;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 24px;
+}
+.contato-section {
+    text-align: center;
+    margin-top: 40px;
+}
+.logo-prefeitura {
+    margin-top: 20px;
+    max-width: 180px;
+}
+footer {
+    background: #1976d2;
+    color: #fff;
+    text-align: center;
+    padding: 18px 0;
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    font-size: 1em;
+    box-shadow: 0 -2px 16px #1976d2aa;
+}
+@media (max-width: 900px) {
+    main {
+        padding: 10px;
+    }
+    .hero-section {
+        padding: 30px 10px 20px 10px;
+    }
+    .hero-section .benefits {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .ganhos-box {
+        padding: 18px 6px 12px 6px;
+    }
+    .cursos-destaque {
+        font-size: 1.1em;
+    }
+}
