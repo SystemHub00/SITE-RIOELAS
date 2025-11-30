@@ -10,7 +10,6 @@ def home():
 def inscricao():
     return render_template('inscricao.html')
 
-
 @app.route('/endereco')
 def endereco():
     return render_template('endereco.html')
