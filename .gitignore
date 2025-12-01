@@ -38,6 +38,7 @@ pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
+plated-field-474017-b8-e00d977b2612.json
 .tox/
 .nox/
 .coverage
