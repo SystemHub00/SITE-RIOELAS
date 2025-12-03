@@ -1,7 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for, session
-from gsheet_utils import append_to_sheet
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import uuid
+import csv
+from io import StringIO
 
+# Armazena os leads inscritos em memória
+leads = []
+
+# Inicializa o Flask antes das rotas
 app = Flask(__name__)
 app.secret_key = 'chave-secreta-para-sessao'  # Troque por uma chave forte em produção
 
@@ -68,11 +73,76 @@ def confirmacao():
         session.get('estado',''),
         session.get('curso','')
     ]
-    try:
-        append_to_sheet(dados)
-    except Exception as e:
-        print('Erro ao enviar para Google Sheets:', e)
+    # Salva os dados localmente para o dashboard admin
+    leads.append(dados)
     return render_template('confirmacao.html', protocolo=protocolo)
+# Rotas de admin (fora de qualquer função)
+@app.route('/admin-login', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        if email == 'admfgm@gmail.com' and senha == '1234':
+            session['admin'] = True
+            return redirect(url_for('admin_dashboard'))
+        else:
+            flash('Credenciais inválidas!')
+    return render_template('admin_login.html')
+
+@app.route('/admin-dashboard')
+def admin_dashboard():
+    if not session.get('admin'):
+        return redirect(url_for('admin_login'))
+    # Calcular quantidade de leads
+    total_leads = len(leads)
+    # Calcular média de idade
+    from datetime import datetime
+    idades = []
+    for lead in leads:
+        nascimento = lead[3]  # campo nascimento
+        try:
+            if nascimento:
+                # Aceita formato DD/MM/AAAA
+                dia, mes, ano = map(int, nascimento.split('/'))
+                hoje = datetime.today()
+                idade = hoje.year - ano - ((hoje.month, hoje.day) < (mes, dia))
+                idades.append(idade)
+        except Exception:
+            pass
+    media_idade = round(sum(idades) / len(idades), 1) if idades else 0
+    return render_template('admin_dashboard.html', leads=leads, total_leads=total_leads, media_idade=media_idade)
+
+@app.route('/download-csv')
+def download_csv():
+    if not session.get('admin'):
+        return redirect(url_for('admin_login'))
+    si = StringIO()
+    writer = csv.writer(si)
+    writer.writerow(['Protocolo','Nome','CPF','Nascimento','Whatsapp','Email','CEP','Endereço','Número','Complemento','Bairro','Cidade','Estado','Curso'])
+    for lead in leads:
+        writer.writerow(lead)
+    output = si.getvalue()
+    return app.response_class(
+        output,
+        mimetype='text/csv',
+        headers={'Content-Disposition': 'attachment;filename=leads.csv'}
+    )
+
+@app.route('/download-excel')
+def download_excel():
+    if not session.get('admin'):
+        return redirect(url_for('admin_login'))
+    si = StringIO()
+    writer = csv.writer(si)
+    writer.writerow(['Protocolo','Nome','CPF','Nascimento','Whatsapp','Email','CEP','Endereço','Número','Complemento','Bairro','Cidade','Estado','Curso'])
+    for lead in leads:
+        writer.writerow(lead)
+    output = si.getvalue()
+    return app.response_class(
+        output,
+        mimetype='application/vnd.ms-excel',
+        headers={'Content-Disposition': 'attachment;filename=leads.xls'}
+    )
 
 import os
 
