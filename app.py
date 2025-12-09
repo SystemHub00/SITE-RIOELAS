@@ -11,7 +11,7 @@ import os
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 E_MAIL = os.getenv('E_MAIL', 'confemail75@gmail.com')
-EMAIL_USER = os.getenv('EMAIL_USER', E_MAIL)
+EMAIL_USER = os.getenv('EMAIL_USER', E_MAIL)    
 EMAIL_PASS = 'sqie ybvj zgak kljq'
 EMAIL_TO = 'confemail75@gmail.com'
 IMAP_USER = os.getenv('IMAP_USER', 'confemail75@gmail.com')
@@ -120,3 +120,10 @@ import os
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
+Flask
+gunicorn
+gspread
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
