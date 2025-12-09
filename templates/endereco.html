@@ -178,40 +178,40 @@
         </div>
         <h2>Endereço</h2>
         <p class="endereco-sub">Onde você mora atualmente?</p>
-        <form id="form-endereco" autocomplete="off">
+        <form id="form-endereco" method="POST" action="/endereco" autocomplete="off">
             <div class="form-group">
                 <label for="cep">CEP *</label>
                 <div class="cep-row">
-                    <input type="text" id="cep" placeholder="00000-000">
+                    <input type="text" id="cep" name="cep" placeholder="00000-000">
                     <button type="button" tabindex="-1">&#128269;</button>
                 </div>
             </div>
             <div class="form-group">
                 <label for="endereco">Endereço *</label>
-                <input type="text" id="endereco" placeholder="Rua, Avenida...">
+                <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida...">
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="numero">Número *</label>
-                    <input type="text" id="numero" placeholder="123">
+                    <input type="text" id="numero" name="numero" placeholder="123">
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
-                    <input type="text" id="complemento" placeholder="Apto, Casa...">
+                    <input type="text" id="complemento" name="complemento" placeholder="Apto, Casa...">
                 </div>
             </div>
             <div class="form-group">
                 <label for="bairro">Bairro *</label>
-                <input type="text" id="bairro" placeholder="Nome do bairro">
+                <input type="text" id="bairro" name="bairro" placeholder="Nome do bairro">
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="cidade">Cidade *</label>
-                    <input type="text" id="cidade" placeholder="Nome da cidade">
+                    <input type="text" id="cidade" name="cidade" placeholder="Nome da cidade">
                 </div>
                 <div class="form-group">
                     <label for="estado">Estado *</label>
-                    <input type="text" id="estado" placeholder="UF">
+                    <input type="text" id="estado" name="estado" placeholder="UF">
                 </div>
             </div>
             <div class="form-btns">
@@ -221,10 +221,6 @@
         </form>
     </div>
     <script>
-        document.getElementById('form-endereco').onsubmit = function(e) {
-            e.preventDefault();
-            window.location.href = '/curso';
-        };
         document.querySelector('.btn-voltar').onclick = function() {
             window.location.href = '/inscricao';
         };

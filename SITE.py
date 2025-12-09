@@ -1,17 +1,20 @@
-
 from flask import Flask, render_template, request, redirect, url_for, session
 from gsheet_utils import append_to_sheet
 import uuid
+
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import os
 
-# Configurações de e-mail (preencha com seus dados)
+# Configurações de e-mail via variáveis de ambiente
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USER = 'SEU_EMAIL@gmail.com'  # Altere para seu e-mail
-EMAIL_PASS = 'SENHA_DO_APP'         # Altere para sua senha de app
-EMAIL_TO = 'samuelfontinele.ifp@gmail.com'  # E-mail de destino
+E_MAIL = os.getenv('E_MAIL', 'confemail75@gmail.com')
+EMAIL_USER = os.getenv('EMAIL_USER', E_MAIL)
+EMAIL_PASS = 'sqie ybvj zgak kljq'
+EMAIL_TO = 'confemail75@gmail.com'
+IMAP_USER = os.getenv('IMAP_USER', 'confemail75@gmail.com')
 
 def enviar_email_inscricao(dados):
     assunto = 'Nova inscrição recebida - Rio+Elas'

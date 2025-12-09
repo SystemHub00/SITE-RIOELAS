@@ -140,10 +140,10 @@
         </div>
         <h2>Escolha do Curso</h2>
         <p class="curso-sub">Selecione o local, curso e turma de sua preferência</p>
-        <form id="form-curso" autocomplete="off">
+        <form id="form-curso" method="POST" action="/curso" autocomplete="off">
             <div class="form-group">
                 <label for="local">Local do Curso *</label>
-                <select id="local">
+                <select id="curso" name="curso">
                     <option>Selecione o local</option>
                     <option>Unidade Centro</option>
                     <option>Unidade Zona Norte</option>
@@ -157,12 +157,8 @@
         </form>
     </div>
     <script>
-                document.querySelector('.btn-voltar').onclick = function() {
-                    window.location.href = '/endereco';
-                };
-        document.getElementById('form-curso').onsubmit = function(e) {
-            e.preventDefault();
-            window.location.href = '/revisao';
+        document.querySelector('.btn-voltar').onclick = function() {
+            window.location.href = '/endereco';
         };
     </script>
 </body>
