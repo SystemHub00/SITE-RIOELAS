@@ -92,16 +92,43 @@
             justify-content: center;
             align-items: center;
             margin-top: 18px;
-            gap: 4px;
+            gap: 18px;
+        }
+        .form-btns .btn-voltar, .form-btns .btn-proximo {
+            min-width: 220px;
+            width: 220px;
+            height: 70px;
+            font-size: 1.25em;
+            font-weight: 800;
+            border-radius: 18px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            outline: none;
+            box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+        }
+        .form-btns .btn-voltar {
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            color: #fff;
+        }
+        .form-btns .btn-proximo {
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            color: #fff;
+        }
         }
         .btn-voltar, .btn-proximo {
-            min-width: 180px;
+            min-width: 200px;
             background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
             color: #fff;
             border: none;
             border-radius: 12px;
-            padding: 16px 32px;
-            font-size: 1.08em;
+            padding: 18px 40px;
+            font-size: 1.18em;
             font-weight: 800;
             font-family: 'Wise', Arial, sans-serif;
             cursor: pointer;

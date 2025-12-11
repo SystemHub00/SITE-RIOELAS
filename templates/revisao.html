@@ -142,75 +142,72 @@
         </div>
     </header>
     <div class="revisao-container">
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
-        <div style="color:#e91e63;font-weight:600;margin-bottom:18px;">&#127881; Formulário completo! Revise seus dados antes de finalizar.</div>
-        <h2>Revise suas Informações</h2>
-        <p class="revisao-sub">Confira se está tudo certo antes de finalizar</p>
-        <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a7.5 7.5 0 0 1 13 0"/></svg> Dados Pessoais</div>
-            <div class="info-content">
-                <b>Nome:</b> {{ dados.nome }}<br>
-                <b>CPF:</b> {{ dados.cpf }}<br>
-                <b>Data de Nascimento:</b> {{ dados.nascimento }}<br>
-                <b>Gênero:</b> {{ dados.genero }}<br>
-                <b>Email:</b> {{ dados.email }}<br>
-                <b>WhatsApp:</b> {{ dados.whatsapp }}
+        <form method="POST" action="/revisao" autocomplete="off">
+            <div class="progress-bar">
+                <div class="progress"></div>
             </div>
-        </div>
-        <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Endereço</div>
-            <div class="info-content">
-                {{ dados.endereco }}, {{ dados.numero }}<br>
-                {{ dados.complemento }}<br>
-                {{ dados.bairro }} - {{ dados.cidade }}/{{ dados.estado }}<br>
-                CEP: {{ dados.cep }}
+            <div style="color:#e91e63;font-weight:600;margin-bottom:18px;">&#127881; Formulário completo! Revise seus dados antes de finalizar.</div>
+            <h2>Revise suas Informações</h2>
+            <p class="revisao-sub">Confira se está tudo certo antes de finalizar</p>
+            <div class="info-box">
+                <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a7.5 7.5 0 0 1 13 0"/></svg> Dados Pessoais</div>
+                <div class="info-content">
+                    <b>Nome:</b> {{ dados.nome }}<br>
+                    <b>CPF:</b> {{ dados.cpf }}<br>
+                    <b>Data de Nascimento:</b> {{ dados.nascimento }}<br>
+                    <b>Gênero:</b> {{ dados.genero }}<br>
+                    <b>Email:</b> {{ dados.email }}<br>
+                    <b>WhatsApp:</b> {{ dados.whatsapp }}
+                </div>
             </div>
-        </div>
-        <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 9h8M8 13h6"/></svg> Perfil</div>
-            <div class="info-content">
-                <b>Gênero:</b> {{ dados.genero }}
+            <div class="info-box">
+                <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Endereço</div>
+                <div class="info-content">
+                    {{ dados.endereco }}, {{ dados.numero }}<br>
+                    {{ dados.complemento }}<br>
+                    {{ dados.bairro }} - {{ dados.cidade }}/{{ dados.estado }}<br>
+                    CEP: {{ dados.cep }}
+                </div>
             </div>
-        </div>
-        <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Curso Escolhido</div>
-            <div class="info-content">
-                <b>Curso:</b> {{ dados.curso }}<br>
-                <b>Local:</b> {{ dados.local }}<br>
-                <b>Turma:</b> {{ dados.turma }}
+            <div class="info-box">
+                <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 9h8M8 13h6"/></svg> Perfil</div>
+                <div class="info-content">
+                    <b>Gênero:</b> {{ dados.genero }}
+                </div>
             </div>
-        </div>
-        <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c2.54 0 4.5 2.46 4.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Motivação</div>
-            <div class="info-content">
-                <b>Como conheceu:</b>
-                <select id="como_conheceu" name="como_conheceu" required style="width:100%;max-width:420px;min-width:260px;padding:10px 12px;border-radius:10px;border:1.5px solid #e91e63;font-size:1.08em;font-family:'Wise','Segoe UI',Arial,sans-serif;background:#fff;color:#e91e63;">
-                    <option value="">Selecione</option>
-                    <option value="Instagram">Instagram</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Indicação de amigo(a)">Indicação de amigo(a)</option>
-                    <option value="Site/Google">Site/Google</option>
-                    <option value="Prefeitura/Bairro">Prefeitura/Bairro</option>
-                    <option value="Outro">Outro</option>
-                </select>
-<style>
-    .info-box select, .info-box input {
-        color: #222 !important;
-    }
-</style>
+            <div class="info-box">
+                <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Curso Escolhido</div>
+                <div class="info-content">
+                    <b>Curso:</b> {{ dados.curso }}<br>
+                    <b>Local:</b> {{ dados.local }}<br>
+                    <b>Turma:</b> {{ dados.turma }}
+                </div>
             </div>
-        </div>
-        <div class="confirmacao-box">
-            <label><input type="checkbox" id="confirma-dados">&nbsp;Confirmo que todas as informações fornecidas são verdadeiras e estou de acordo com os termos de participação do Projeto Rio +Elas. Autorizo o uso dos meus dados para fins de inscrição e contato relacionado ao curso.<br><br>
-            Também autorizo o uso da minha imagem para divulgação nos canais de comunicação e redes sociais do projeto e da Prefeitura do Rio de Janeiro.<br><br>
-            Estou ciente de que o certificado de conclusão só será emitido para alunos considerados aptos, após avaliação do professor responsável pelo curso.</label>
-        </div>
-        <div class="form-btns">
-            <button type="button" class="btn-voltar">&lt; Voltar</button>
-            <button type="submit" class="btn-finalizar" id="btn-finalizar" disabled>Finalizar Inscrição</button>
-        </div>
+            <div class="info-box">
+                <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c2.54 0 4.5 2.46 4.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Motivação</div>
+                <div class="info-content">
+                    <b>Como conheceu:</b>
+                    <select id="como_conheceu" name="como_conheceu" required style="width:100%;max-width:420px;min-width:260px;padding:10px 12px;border-radius:10px;border:1.5px solid #e91e63;font-size:1.08em;font-family:'Wise','Segoe UI',Arial,sans-serif;background:#fff;color:#e91e63;">
+                        <option value="">Selecione</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Indicação de amigo(a)">Indicação de amigo(a)</option>
+                        <option value="Site/Google">Site/Google</option>
+                        <option value="Prefeitura/Bairro">Prefeitura/Bairro</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="confirmacao-box">
+                <label><input type="checkbox" id="confirma-dados">&nbsp;Confirmo que todas as informações fornecidas são verdadeiras e estou de acordo com os termos de participação do Projeto Rio +Elas. Autorizo o uso dos meus dados para fins de inscrição e contato relacionado ao curso.<br><br>
+                Também autorizo o uso da minha imagem para divulgação nos canais de comunicação e redes sociais do projeto e da Prefeitura do Rio de Janeiro.<br><br>
+                Estou ciente de que o certificado de conclusão só será emitido para alunos considerados aptos, após avaliação do professor responsável pelo curso.</label>
+            </div>
+            <div class="form-btns">
+                <button type="button" class="btn-voltar">&lt; Voltar</button>
+                <button type="submit" class="btn-finalizar" id="btn-finalizar" disabled>Finalizar Inscrição</button>
+            </div>
+        </form>
     </div>
     <script>
         document.querySelector('.btn-voltar').onclick = function() {
@@ -221,4 +218,3 @@
         });
     </script>
 </body>
-</html>
