@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolha do Curso - Rio+Elas</title>
     <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
+            font-family: 'Wise', Arial, sans-serif;
         }
         .curso-container {
             max-width: 600px;
@@ -24,14 +24,14 @@
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: #e3e7ee;
+            background: #f8bbd0;
             border-radius: 8px;
             margin-bottom: 24px;
             overflow: hidden;
         }
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
             border-radius: 8px;
             transition: width 0.3s;
             width: 99%;
@@ -39,12 +39,12 @@
         .curso-container h2 {
             font-size: 2em;
             font-weight: 900;
-            color: #222;
+            color: #e91e63;
             margin-bottom: 8px;
             letter-spacing: -1px;
         }
         .curso-sub {
-            color: #7a7a7a;
+            color: #e91e63;
             font-size: 1.08em;
             margin-bottom: 24px;
         }
@@ -56,7 +56,7 @@
         }
         .form-group label {
             font-weight: 700;
-            color: #222;
+            color: #e91e63;
             margin-bottom: 6px;
             font-size: 1.08em;
         }
@@ -69,17 +69,17 @@
             min-width: 260px;
             padding: 18px 16px;
             border-radius: 12px;
-            border: 1.5px solid #2196f3;
+            border: 1.5px solid #f8bbd0;
             font-size: 1.08em;
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            background: #f7fafd;
-            color: #222;
+            font-family: 'Wise', Arial, sans-serif;
+            background: #fff0f6;
+            color: #e91e63;
             transition: border 0.2s;
             outline: none;
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%232196f3" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
             background-repeat: no-repeat;
             background-position: right 14px center;
             background-size: 22px 22px;
@@ -93,16 +93,16 @@
         }
         .btn-voltar, .btn-proximo {
             min-width: 200px;
-            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
             color: #fff;
             border: none;
             border-radius: 12px;
             padding: 18px 40px;
             font-size: 1.18em;
             font-weight: 800;
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-family: 'Wise', Arial, sans-serif;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            box-shadow: 0 2px 8px rgba(233,30,99,0.10);
             letter-spacing: 0.5px;
             transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
             outline: none;
@@ -110,12 +110,12 @@
             display: inline-block;
         }
         .btn-proximo:hover {
-            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
+            box-shadow: 0 4px 16px rgba(233,30,99,0.12);
         }
         .btn-voltar:hover {
-            background: #e3f0ff;
-            color: #0072ff;
+            background: #fff0f6;
+            color: #e91e63;
         }
         @media (max-width: 600px) {
             .curso-container {
@@ -143,11 +143,23 @@
         <form id="form-curso" method="POST" action="/curso" autocomplete="off">
             <div class="form-group">
                 <label for="local">Local do Curso *</label>
-                <select id="curso" name="curso">
-                    <option>Selecione o local</option>
-                    <option>Unidade Centro</option>
-                    <option>Unidade Zona Norte</option>
-                    <option>Unidade Zona Oeste</option>
+                <select id="local" name="local" required>
+                    <option value="">Selecione o local</option>
+                    <option value="Unidade Centro">Unidade Centro</option>
+                    <option value="Unidade Zona Norte">Unidade Zona Norte</option>
+                    <option value="Unidade Zona Oeste">Unidade Zona Oeste</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="curso">Curso *</label>
+                <select id="curso" name="curso" required>
+                    <option value="">Selecione o curso</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="turma">Turma *</label>
+                <select id="turma" name="turma" required>
+                    <option value="">Selecione a turma</option>
                 </select>
             </div>
             <div class="form-btns">
@@ -157,6 +169,42 @@
         </form>
     </div>
     <script>
+        // Lógica dinâmica de cursos e turmas por local
+        const cursosPorLocal = {
+            'Unidade Centro': ['Trancista', 'Designer de Sobrancelhas'],
+            'Unidade Zona Norte': ['Extensão de Cílios', 'Trancista'],
+            'Unidade Zona Oeste': ['Designer de Sobrancelhas', 'Trancista']
+        };
+        const turmasPorCurso = {
+            'Trancista': ['05, 06, 07/01/26 | 09h-16h'],
+            'Designer de Sobrancelhas': ['10, 11, 12/01/26 | 13h-18h'],
+            'Extensão de Cílios': ['15, 16, 17/01/26 | 09h-16h']
+        };
+        const localSelect = document.getElementById('local');
+        const cursoSelect = document.getElementById('curso');
+        const turmaSelect = document.getElementById('turma');
+
+        localSelect.addEventListener('change', function() {
+            cursoSelect.innerHTML = '<option value="">Selecione o curso</option>';
+            turmaSelect.innerHTML = '<option value="">Selecione a turma</option>';
+            const cursos = cursosPorLocal[localSelect.value] || [];
+            cursos.forEach(curso => {
+                const opt = document.createElement('option');
+                opt.value = curso;
+                opt.textContent = curso;
+                cursoSelect.appendChild(opt);
+            });
+        });
+        cursoSelect.addEventListener('change', function() {
+            turmaSelect.innerHTML = '<option value="">Selecione a turma</option>';
+            const turmas = turmasPorCurso[cursoSelect.value] || [];
+            turmas.forEach(turma => {
+                const opt = document.createElement('option');
+                opt.value = turma;
+                opt.textContent = turma;
+                turmaSelect.appendChild(opt);
+            });
+        });
         document.querySelector('.btn-voltar').onclick = function() {
             window.location.href = '/endereco';
         };

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição realizada com sucesso! - Rio+Elas</title>
     <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
+            font-family: 'Wise', Arial, sans-serif;
         }
         .sucesso-container {
             max-width: 600px;
@@ -22,7 +22,7 @@
             position: relative;
         }
         .checkmark {
-            background: #e3f0ff;
+            background: #fff0f6;
             border-radius: 50%;
             width: 70px;
             height: 70px;
@@ -34,29 +34,29 @@
         .checkmark svg {
             width: 40px;
             height: 40px;
-            color: #2196f3;
+            color: #e91e63;
         }
         .sucesso-container h2 {
             font-size: 2em;
             font-weight: 900;
-            color: #222;
+            color: #e91e63;
             margin-bottom: 8px;
             letter-spacing: -1px;
         }
         .protocolo-box {
-            background: #f7fafd;
+            background: #fff0f6;
             border-radius: 16px;
-            border: 2px solid #e3e7ee;
+            border: 2px solid #f8bbd0;
             margin: 24px 0 18px 0;
             padding: 18px 22px;
         }
         .protocolo-label {
-            color: #7a7a7a;
+            color: #e91e63;
             font-size: 1.08em;
             margin-bottom: 6px;
         }
         .protocolo-numero {
-            color: #1976d2;
+            color: #e91e63;
             font-size: 1.3em;
             font-weight: 900;
             word-break: break-all;
@@ -69,16 +69,16 @@
         }
         .btn-whatsapp, .btn-inicio {
             min-width: 200px;
-            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
             color: #fff;
             border: none;
             border-radius: 12px;
             padding: 18px 40px;
             font-size: 1.18em;
             font-weight: 800;
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-family: 'Wise', Arial, sans-serif;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            box-shadow: 0 2px 8px rgba(233,30,99,0.10);
             letter-spacing: 0.5px;
             transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
             outline: none;
@@ -89,23 +89,23 @@
             text-decoration: none;
         }
         .btn-inicio:hover {
-            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
+            box-shadow: 0 4px 16px rgba(233,30,99,0.12);
         }
         .btn-whatsapp:hover {
-            background: #e3f0ff;
-            color: #0072ff;
+            background: #fff0f6;
+            color: #e91e63;
         }
         .proximos-passos {
-            background: #f7fafd;
+            background: #fff0f6;
             border-radius: 16px;
-            border: 2px solid #e3e7ee;
+            border: 2px solid #f8bbd0;
             margin-top: 32px;
             padding: 18px 22px;
             text-align: left;
         }
         .proximos-passos b {
-            color: #222;
+            color: #e91e63;
         }
         @media (max-width: 600px) {
             .sucesso-container {
@@ -135,7 +135,7 @@
             <div class="protocolo-numero">{{ protocolo }}</div>
             <div style="color:#7a7a7a;font-size:0.98em;margin-top:8px;">Guarde este número para acompanhar sua inscrição</div>
         </div>
-        <div style="margin-bottom:18px;">Em breve entraremos em contato via WhatsApp no número (61) 99252-0720 com mais informações sobre o curso.<br>Fique atenta(o) às mensagens e ligações!</div>
+        <div style="margin-bottom:18px;">Em breve entraremos em contato via WhatsApp no número {{ session['whatsapp'] if session['whatsapp'] else '' }} com mais informações sobre o curso.<br>Fique atenta(o) às mensagens e ligações!</div>
         <div class="btns">
             <a class="btn-whatsapp" href="https://wa.me/?text=Minha%20inscri%C3%A7%C3%A3o%20no%20Rio%2BElas%20foi%20realizada!%20Protocolo:%20{{ protocolo }}" target="_blank">&#128241; Compartilhar no WhatsApp</a>
             <a class="btn-inicio" href="/">Voltar ao Início</a>

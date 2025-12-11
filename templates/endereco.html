@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Endereço - Rio+Elas</title>
     <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
+            font-family: 'Wise', Arial, sans-serif;
         }
         .endereco-container {
             max-width: 480px;
@@ -24,14 +24,14 @@
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: #e3e7ee;
+            background: #f8bbd0;
             border-radius: 8px;
             margin-bottom: 24px;
             overflow: hidden;
         }
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
             border-radius: 8px;
             transition: width 0.3s;
             width: 66%;
@@ -39,12 +39,12 @@
         .endereco-container h2 {
             font-size: 2.2em;
             font-weight: 900;
-            color: #222;
+            color: #e91e63;
             margin-bottom: 28px;
             letter-spacing: -1px;
         }
         .endereco-sub {
-            color: #7a7a7a;
+            color: #e91e63;
             font-size: 1.08em;
             margin-bottom: 24px;
         }
@@ -58,7 +58,7 @@
         /* Removido .form-row para inputs ficarem um abaixo do outro */
         .form-group label {
             font-weight: 400;
-            color: #222;
+            color: #e91e63;
             margin-bottom: 8px;
             font-size: 1.08em;
             text-align: right;
@@ -74,16 +74,16 @@
             min-width: 260px;
             padding: 10px 12px;
             border-radius: 10px;
-            border: 1.5px solid #d0d7e2;
+            border: 1.5px solid #f8bbd0;
             font-size: 1.08em;
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            background: #f7fafd;
-            color: #222;
+            font-family: 'Wise', Arial, sans-serif;
+            background: #fff0f6;
+            color: #e91e63;
             transition: border 0.2s;
             outline: none;
         }
         .form-group input:focus {
-            border: 1.5px solid #2196f3;
+            border: 1.5px solid #e91e63;
         }
         .form-btns {
             display: flex;
@@ -101,27 +101,27 @@
             font-weight: 800;
             border-radius: 14px;
             border: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            box-shadow: 0 2px 8px rgba(233,30,99,0.10);
             letter-spacing: 0.5px;
             transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
             outline: none;
             text-transform: uppercase;
             display: inline-block;
-            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
             color: #fff;
         }
         .btn-voltar {
             background: #fff;
-            color: #2196f3;
-            border: 1.5px solid #e3e7ee;
+            color: #e91e63;
+            border: 1.5px solid #f8bbd0;
         }
         .btn-proximo {
-            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
         }
         .btn-proximo:hover, .btn-voltar:hover {
-            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
+            background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
             color: #fff;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+            box-shadow: 0 6px 24px rgba(233,30,99,0.16);
             transform: translateY(-2px) scale(1.04);
         }
         .cep-row {
@@ -134,17 +134,17 @@
             flex: 1;
         }
         .cep-row button {
-            background: #e3e7ee;
+            background: #f8bbd0;
             border: none;
             border-radius: 8px;
             padding: 10px 16px;
             cursor: pointer;
             font-size: 1.1em;
-            color: #2196f3;
+            color: #e91e63;
             transition: background 0.2s;
         }
         .cep-row button:hover {
-            background: #d0d7e2;
+            background: #ffb6c1;
         }
         @media (max-width: 600px) {
             .endereco-container {
@@ -182,18 +182,32 @@
             <div class="form-group">
                 <label for="cep">CEP *</label>
                 <div class="cep-row">
-                    <input type="text" id="cep" name="cep" placeholder="00000-000">
-                    <button type="button" tabindex="-1">&#128269;</button>
+                    <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" pattern="\d{5}-\d{3}" required>
+                    <span class="error-msg" id="cep-error" style="display:none;">CEP inválido</span>
+                    <script>
+                    // Máscara e validação de CEP
+                    document.getElementById('cep').addEventListener('input', function(e) {
+                        let v = e.target.value.replace(/\D/g, '').slice(0,8);
+                        if (v.length > 5) v = v.slice(0,5) + '-' + v.slice(5);
+                        e.target.value = v;
+                    });
+                    document.getElementById('form-endereco').onsubmit = function(e) {
+                        let cep = document.getElementById('cep').value.replace(/\D/g, '');
+                        let valido = cep.length === 8;
+                        document.getElementById('cep-error').style.display = valido ? 'none' : 'block';
+                        if (!valido) e.preventDefault();
+                    };
+                    </script>
                 </div>
             </div>
             <div class="form-group">
                 <label for="endereco">Endereço *</label>
-                <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida...">
+                <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida..." required>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="numero">Número *</label>
-                    <input type="text" id="numero" name="numero" placeholder="123">
+                    <input type="text" id="numero" name="numero" placeholder="123" required>
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
@@ -202,16 +216,16 @@
             </div>
             <div class="form-group">
                 <label for="bairro">Bairro *</label>
-                <input type="text" id="bairro" name="bairro" placeholder="Nome do bairro">
+                <input type="text" id="bairro" name="bairro" placeholder="Nome do bairro" required>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="cidade">Cidade *</label>
-                    <input type="text" id="cidade" name="cidade" placeholder="Nome da cidade">
+                    <input type="text" id="cidade" name="cidade" placeholder="Nome da cidade" required>
                 </div>
                 <div class="form-group">
                     <label for="estado">Estado *</label>
-                    <input type="text" id="estado" name="estado" placeholder="UF">
+                    <input type="text" id="estado" name="estado" placeholder="UF" required>
                 </div>
             </div>
             <div class="form-btns">

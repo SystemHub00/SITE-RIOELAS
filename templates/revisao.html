@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revisar Inscrição - Rio+Elas</title>
     <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(120deg, #f7fafd 60%, #e3f0ff 100%);
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
+            font-family: 'Wise', Arial, sans-serif;
         }
         .revisao-container {
             max-width: 700px;
@@ -23,14 +23,14 @@
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: #e3e7ee;
+            background: #f8bbd0;
             border-radius: 8px;
             margin-bottom: 24px;
             overflow: hidden;
         }
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
             border-radius: 8px;
             transition: width 0.3s;
             width: 100%;
@@ -38,25 +38,25 @@
         .revisao-container h2 {
             font-size: 2em;
             font-weight: 900;
-            color: #222;
+            color: #e91e63;
             margin-bottom: 8px;
             letter-spacing: -1px;
         }
         .revisao-sub {
-            color: #7a7a7a;
+            color: #e91e63;
             font-size: 1.08em;
             margin-bottom: 24px;
         }
         .info-box {
-            background: #f7fafd;
+            background: #fff0f6;
             border-radius: 16px;
-            border: 2px solid #e3e7ee;
+            border: 2px solid #f8bbd0;
             margin-bottom: 18px;
             padding: 18px 22px;
         }
         .info-title {
             font-weight: 700;
-            color: #2196f3;
+            color: #e91e63;
             margin-bottom: 8px;
             font-size: 1.1em;
             display: flex;
@@ -68,13 +68,13 @@
             height: 20px;
         }
         .info-content {
-            color: #222;
+            color: #e91e63;
             font-size: 1.08em;
         }
         .confirmacao-box {
-            background: #f7fafd;
+            background: #fff0f6;
             border-radius: 16px;
-            border: 2px solid #e3e7ee;
+            border: 2px solid #f8bbd0;
             margin-bottom: 18px;
             padding: 18px 22px;
         }
@@ -83,7 +83,7 @@
             align-items: flex-start;
             gap: 10px;
             font-size: 1.05em;
-            color: #222;
+            color: #e91e63;
             cursor: pointer;
         }
         .form-btns {
@@ -95,16 +95,16 @@
         }
         .btn-voltar, .btn-finalizar {
             min-width: 200px;
-            background: linear-gradient(90deg, #0099ff 0%, #0072ff 100%);
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
             color: #fff;
             border: none;
             border-radius: 12px;
             padding: 18px 40px;
             font-size: 1.18em;
             font-weight: 800;
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-family: 'Wise', Arial, sans-serif;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            box-shadow: 0 2px 8px rgba(233,30,99,0.10);
             letter-spacing: 0.5px;
             transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
             outline: none;
@@ -112,17 +112,17 @@
             display: inline-block;
         }
         .btn-finalizar:disabled {
-            background: #b3d8f7;
+            background: #f8bbd0;
             color: #fff;
             cursor: not-allowed;
         }
         .btn-finalizar:hover:enabled {
-            background: linear-gradient(90deg, #0072ff 0%, #0099ff 100%);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
+            box-shadow: 0 4px 16px rgba(233,30,99,0.12);
         }
         .btn-voltar:hover {
-            background: #e3f0ff;
-            color: #0072ff;
+            background: #fff0f6;
+            color: #e91e63;
         }
         @media (max-width: 600px) {
             .revisao-container {
@@ -145,50 +145,56 @@
         <div class="progress-bar">
             <div class="progress"></div>
         </div>
-        <div style="color:#2196f3;font-weight:600;margin-bottom:18px;">&#127881; Formulário completo! Revise seus dados antes de finalizar.</div>
+        <div style="color:#e91e63;font-weight:600;margin-bottom:18px;">&#127881; Formulário completo! Revise seus dados antes de finalizar.</div>
         <h2>Revise suas Informações</h2>
         <p class="revisao-sub">Confira se está tudo certo antes de finalizar</p>
         <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a7.5 7.5 0 0 1 13 0"/></svg> Dados Pessoais</div>
+            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a7.5 7.5 0 0 1 13 0"/></svg> Dados Pessoais</div>
             <div class="info-content">
-                <b>Nome:</b> LUCAS LUAN PEREIRA VIEIRA<br>
-                <b>CPF:</b> 081.313.361-07<br>
-                <b>Data de Nascimento:</b> 23/03/2005<br>
-                <b>Email:</b> lucasluan8600@gmail.com<br>
-                <b>WhatsApp:</b> (61) 99252-0720
+                <b>Nome:</b> {{ dados.nome }}<br>
+                <b>CPF:</b> {{ dados.cpf }}<br>
+                <b>Data de Nascimento:</b> {{ dados.nascimento }}<br>
+                <b>Gênero:</b> {{ dados.genero }}<br>
+                <b>Email:</b> {{ dados.email }}<br>
+                <b>WhatsApp:</b> {{ dados.whatsapp }}
             </div>
         </div>
         <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Endereço</div>
+            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Endereço</div>
             <div class="info-content">
-                Qno, 20<br>
-                Conjunto 21<br>
-                Ceilândia - Brasília/DF<br>
-                CEP: 72261-221
+                {{ dados.endereco }}, {{ dados.numero }}<br>
+                {{ dados.complemento }}<br>
+                {{ dados.bairro }} - {{ dados.cidade }}/{{ dados.estado }}<br>
+                CEP: {{ dados.cep }}
             </div>
         </div>
         <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 9h8M8 13h6"/></svg> Perfil</div>
+            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 9h8M8 13h6"/></svg> Perfil</div>
             <div class="info-content">
-                <b>Gênero:</b> <br>
-                <b>LGBTQIA+:</b> Não<br>
-                <b>Funcionário da Prefeitura:</b> Não<br>
-                <b>Renda Familiar:</b> <br>
-                <b>Tem filhos:</b> Não
+                <b>Gênero:</b> {{ dados.genero }}
             </div>
         </div>
         <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Curso Escolhido</div>
+            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20"/></svg> Curso Escolhido</div>
             <div class="info-content">
-                <b>Curso:</b> Trancista<br>
-                <b>Local:</b> Central do Trabalhador JPA<br>
-                <b>Turma:</b> 05, 06, 07/01/26 | 09h-16h
+                <b>Curso:</b> {{ dados.curso }}<br>
+                <b>Local:</b> {{ dados.local }}<br>
+                <b>Turma:</b> {{ dados.turma }}
             </div>
         </div>
         <div class="info-box">
-            <div class="info-title"><svg fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c2.54 0 4.5 2.46 4.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Motivação</div>
+            <div class="info-title"><svg fill="none" stroke="#e91e63" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c2.54 0 4.5 2.46 4.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Motivação</div>
             <div class="info-content">
                 <b>Como conheceu:</b>
+                <select id="como_conheceu" name="como_conheceu" required style="width:100%;max-width:420px;min-width:260px;padding:10px 12px;border-radius:10px;border:1.5px solid #e91e63;font-size:1.08em;font-family:'Wise','Segoe UI',Arial,sans-serif;background:#fff;color:#e91e63;">
+                    <option value="">Selecione</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Indicação de amigo(a)">Indicação de amigo(a)</option>
+                    <option value="Site/Google">Site/Google</option>
+                    <option value="Prefeitura/Bairro">Prefeitura/Bairro</option>
+                    <option value="Outro">Outro</option>
+                </select>
             </div>
         </div>
         <div class="confirmacao-box">
@@ -202,6 +208,9 @@
         </div>
     </div>
     <script>
+                document.querySelector('.btn-voltar').onclick = function() {
+                    window.location.href = '/curso';
+                };
         document.getElementById('confirma-dados').addEventListener('change', function() {
             document.getElementById('btn-finalizar').disabled = !this.checked;
         });

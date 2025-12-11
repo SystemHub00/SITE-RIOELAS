@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from gsheet_utils import append_to_sheet
+import csv
 import uuid
 
 import smtplib
@@ -20,10 +20,31 @@ def enviar_email_inscricao(dados):
     assunto = 'Nova inscrição recebida - Rio+Elas'
     corpo = 'Nova inscrição recebida:\n\n'
     campos = [
-        'Protocolo', 'Nome', 'CPF', 'Nascimento', 'Whatsapp', 'Email',
-        'CEP', 'Endereço', 'Número', 'Complemento', 'Bairro', 'Cidade', 'Estado', 'Curso'
+        'Protocolo', 'Nome', 'Gênero', 'CPF', 'Nascimento', 'Whatsapp', 'Email',
+        'CEP', 'Endereço', 'Número', 'Complemento', 'Bairro', 'Cidade', 'Estado',
+        'Local', 'Curso', 'Turma'
     ]
-    for campo, valor in zip(campos, dados):
+    # Montar lista de dados na mesma ordem dos campos
+    dados_completos = [
+        dados[0], # Protocolo
+        dados[1], # Nome
+        session.get('genero',''),
+        dados[2], # CPF
+        dados[3], # Nascimento
+        dados[4], # Whatsapp
+        dados[5], # Email
+        dados[6], # CEP
+        dados[7], # Endereço
+        dados[8], # Número
+        dados[9], # Complemento
+        dados[10], # Bairro
+        dados[11], # Cidade
+        dados[12], # Estado
+        session.get('local',''),
+        session.get('curso',''),
+        session.get('turma','')
+    ]
+    for campo, valor in zip(campos, dados_completos):
         corpo += f'{campo}: {valor}\n'
     msg = MIMEMultipart()
     msg['From'] = EMAIL_USER
@@ -54,6 +75,7 @@ def inscricao():
         session['nascimento'] = request.form.get('nascimento')
         session['whatsapp'] = request.form.get('whatsapp')
         session['email'] = request.form.get('email')
+        session['genero'] = request.form.get('genero')
         return redirect(url_for('endereco'))
     return render_template('inscricao.html')
 
@@ -73,7 +95,9 @@ def endereco():
 @app.route('/curso', methods=['GET', 'POST'])
 def curso():
     if request.method == 'POST':
+        session['local'] = request.form.get('local')
         session['curso'] = request.form.get('curso')
+        session['turma'] = request.form.get('turma')
         return redirect(url_for('revisao'))
     return render_template('curso.html')
 
@@ -105,17 +129,19 @@ def confirmacao():
         session.get('estado',''),
         session.get('curso','')
     ]
+    # Salva os dados localmente em DADOS.csv
     try:
-        append_to_sheet(dados)
+        with open('dados/DADOS.csv', 'a', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(dados)
     except Exception as e:
-        print('Erro ao enviar para Google Sheets:', e)
+        print('Erro ao salvar em DADOS.csv:', e)
     try:
         enviar_email_inscricao(dados)
     except Exception as e:
         print('Erro ao enviar e-mail:', e)
     return render_template('confirmacao.html', protocolo=protocolo)
 
-import os
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

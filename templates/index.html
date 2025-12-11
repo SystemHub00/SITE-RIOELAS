@@ -5,6 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rio+Elas</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
+            font-family: 'Wise', Arial, sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #e91e63;
+            font-family: 'Wise', Arial, sans-serif;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 40px;
+            font-size: 1.18em;
+            font-weight: 800;
+            font-family: 'Wise', Arial, sans-serif;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+            letter-spacing: 0.5px;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            outline: none;
+            text-transform: uppercase;
+            margin-top: 18px;
+            text-decoration: none;
+        }
+        .cta-btn:hover {
+            background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
+            box-shadow: 0 4px 16px rgba(233,30,99,0.12);
+        }
+        .ganhos-box, .cursos-section, .contato-section {
+            background: #fff0f6;
+            border-radius: 16px;
+            border: 2px solid #f8bbd0;
+            margin: 24px 0;
+            padding: 18px 22px;
+        }
+        .ganhos-list li, .cursos-title, .cursos-destaque, .contato-section p, .contato-section h2 {
+            color: #e91e63;
+        }
+        .icon-svg svg {
+            stroke: #e91e63 !important;
+        }
+        .main-header, footer {
+            background: #fff;
+        }
+        footer p {
+            color: #e91e63;
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -14,10 +67,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#ganhos">O que você vai ganhar?</a></li>
-                <li><a href="#cursos">Cursos</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#">INÍCIO</a></li>
+                <li><a href="#ganhos">O QUE VOCÊ VAI GANHAR?</a></li>
+                <li><a href="#cursos">CURSOS</a></li>
+                <li><a href="#contato">CONTATO</a></li>
             </ul>
         </nav>
     </header>
@@ -27,7 +80,7 @@
             <p>Participe do <span class="destaque">Projeto Rio +Elas</span> e aprenda uma nova profissão com cursos gratuitos de beleza oferecidos pela Prefeitura do Rio de Janeiro.</p>
             <div class="benefits">
                 <div class="benefit">
-                    <span class="icon-svg"> <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#222" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="icon-svg"> <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                     <strong>100% Gratuito</strong>
                 </div>
                 <div class="benefit">
@@ -44,10 +97,10 @@
             <div class="ganhos-box">
                 <h2>O que você vai ganhar?</h2>
                 <ul class="ganhos-list">
-                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#2196f3" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#2196f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Formação profissional completa em uma das áreas mais valorizadas do mercado</li>
-                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#2196f3" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#2196f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Kit com materiais profissionais para você iniciar sua carreira</li>
-                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#2196f3" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#2196f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Certificado reconhecido pela Prefeitura do Rio de Janeiro</li>
-                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#2196f3" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#2196f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Apoio para seu desenvolvimento profissional e geração de renda</li>
+                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Formação profissional completa em uma das áreas mais valorizadas do mercado</li>
+                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Kit com materiais profissionais para você iniciar sua carreira</li>
+                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Certificado reconhecido pela Prefeitura do Rio de Janeiro</li>
+                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Apoio para seu desenvolvimento profissional e geração de renda</li>
                 </ul>
             </div>
             <a href="/inscricao" class="cta-btn">Quero me inscrever agora!</a>
@@ -57,8 +110,7 @@
             <p class="cursos-destaque"><b>Extensão de Cílios</b> &bull; <b>Designer de Sobrancelhas</b> &bull; <b>Trancista</b></p>
         </section>
         <section id="contato" class="contato-section">
-            <h2>Contato</h2>
-            <p>Email: contato@riomaiselas.com.br</p>
+            
             <img src="https://investidordesucesso.fgmcursos.com.br/assets/logo-rj-C4on5mTt.png" alt="Prefeitura do Rio de Janeiro" class="logo-prefeitura">
         </section>
     </main>
