@@ -104,6 +104,7 @@ def curso():
 @app.route('/revisao', methods=['GET', 'POST'])
 def revisao():
     if request.method == 'POST':
+        session['como_conheceu'] = request.form.get('como_conheceu')
         return redirect(url_for('confirmacao'))
     return render_template('revisao.html', dados=session)
 
@@ -127,15 +128,10 @@ def confirmacao():
         session.get('bairro',''),
         session.get('cidade',''),
         session.get('estado',''),
-        session.get('curso','')
+        session.get('curso',''),
+        session.get('como_conheceu','')
     ]
-    # Salva os dados localmente em DADOS.csv
-    try:
-        with open('dados/DADOS.csv', 'a', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerow(dados)
-    except Exception as e:
-        print('Erro ao salvar em DADOS.csv:', e)
+    # Removido salvamento em DADOS.csv conforme solicitado
     try:
         enviar_email_inscricao(dados)
     except Exception as e:

@@ -195,6 +195,11 @@
                     <option value="Prefeitura/Bairro">Prefeitura/Bairro</option>
                     <option value="Outro">Outro</option>
                 </select>
+<style>
+    .info-box select, .info-box input {
+        color: #222 !important;
+    }
+</style>
             </div>
         </div>
         <div class="confirmacao-box">
@@ -204,19 +209,16 @@
         </div>
         <div class="form-btns">
             <button type="button" class="btn-voltar">&lt; Voltar</button>
-            <button type="button" class="btn-finalizar" id="btn-finalizar" disabled>Finalizar Inscrição</button>
+            <button type="submit" class="btn-finalizar" id="btn-finalizar" disabled>Finalizar Inscrição</button>
         </div>
     </div>
     <script>
-                document.querySelector('.btn-voltar').onclick = function() {
-                    window.location.href = '/curso';
-                };
+        document.querySelector('.btn-voltar').onclick = function() {
+            window.location.href = '/curso';
+        };
         document.getElementById('confirma-dados').addEventListener('change', function() {
             document.getElementById('btn-finalizar').disabled = !this.checked;
         });
-        document.getElementById('btn-finalizar').onclick = function() {
-            window.location.href = '/confirmacao';
-        };
     </script>
 </body>
 </html>

@@ -1,3 +1,7 @@
+/* INPUTS E SELECTS SEMPRE PRETO */
+input, select {
+    color: #222 !important;
+}
 /* RESPONSIVIDADE GLOBAL */
 @media (max-width: 600px) {
     body {
