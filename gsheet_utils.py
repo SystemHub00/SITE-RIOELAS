@@ -20,6 +20,7 @@ def append_to_sheet(data):
     sheet = client.open_by_key(sheet_id).worksheet(sheet_name)
     # Cabeçalho desejado
     header = [
+        'Data/Hora Envio',
         'Protocolo', 'Nome', 'CPF', 'Nascimento', 'Whatsapp', 'Email',
         'CEP', 'Endereço', 'Número', 'Complemento', 'Bairro', 'Cidade', 'Estado',
         'Curso', 'Como Conheceu'
@@ -32,6 +33,10 @@ def append_to_sheet(data):
     total_leads = len(sheet.get_all_values()) - 1  # -1 por causa do cabeçalho
     if total_leads >= max_leads:
         raise Exception(f"Limite de leads atingido ({max_leads}). Novos dados não serão salvos.")
+    # Adiciona data/hora atual no início dos dados
+    from datetime import datetime
+    now = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+    data_to_save = [now] + data
     # Procura a próxima linha vazia
     next_row = len(sheet.get_all_values()) + 1
-    sheet.insert_row(data, next_row)
+    sheet.insert_row(data_to_save, next_row)
