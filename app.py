@@ -8,12 +8,11 @@ from email.mime.multipart import MIMEMultipart
 import os
 
 # Configurações de e-mail via variáveis de ambiente
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-E_MAIL = os.getenv('E_MAIL', 'confemail75@gmail.com')
-EMAIL_USER = os.getenv('EMAIL_USER', E_MAIL)    
-EMAIL_PASS = 'sqie ybvj zgak kljq'
-EMAIL_TO = 'confemail75@gmail.com'
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
+EMAIL_USER = os.getenv('EMAIL_USER', 'confemail75@gmail.com')
+EMAIL_PASS = os.getenv('EMAIL_PASS', '')
+EMAIL_TO = os.getenv('EMAIL_TO', 'confemail75@gmail.com')
 IMAP_USER = os.getenv('IMAP_USER', 'confemail75@gmail.com')
 
 def enviar_email_inscricao(dados):
@@ -52,13 +51,19 @@ def enviar_email_inscricao(dados):
     msg['Subject'] = assunto
     msg.attach(MIMEText(corpo, 'plain'))
     try:
+        if not EMAIL_USER or not EMAIL_PASS:
+            raise ValueError('Credenciais de e-mail não configuradas corretamente.')
         server = smtplib.SMTP(EMAIL_HOST, EMAIL_PORT)
         server.starttls()
         server.login(EMAIL_USER, EMAIL_PASS)
         server.sendmail(EMAIL_USER, EMAIL_TO, msg.as_string())
         server.quit()
+        print('E-mail enviado com sucesso.')
     except Exception as e:
         print('Erro ao enviar e-mail:', e)
+        # Opcional: salvar log de erro em arquivo
+        with open('erro_email.log', 'a', encoding='utf-8') as f:
+            f.write(f'{str(e)}\n')
 
 app = Flask(__name__)
 app.secret_key = 'chave-secreta-para-sessao'  # Troque por uma chave forte em produção
