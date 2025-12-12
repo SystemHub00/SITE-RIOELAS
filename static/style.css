@@ -1,58 +1,91 @@
+.cta-btn {
+    animation: pulse-scale 1s infinite alternate;
+}
+
+@keyframes pulse-scale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+@media (max-width: 600px) {
+    .btns {
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100%;
+        align-items: stretch;
+    }
+    .btn-whatsapp, .btn-inicio {
+        width: 100% !important;
+        min-width: unset !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        display: block;
+        text-align: center;
+        font-size: 1em;
+        padding: 16px 0;
+    }
+}
+@media (max-width: 600px) {
+    .endereco-container input,
+    .endereco-container select {
+        width: 100% !important;
+        min-width: unset !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        font-size: 1em;
+    }
+}
+@media (max-width: 600px) {
+    input[type="date"] {
+        width: 100% !important;
+        min-width: unset !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        font-size: 1em;
+    }
+}
+@media (max-width: 600px) {
+    .cta-btn {
+        width: 100% !important;
+        min-width: unset !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        display: block;
+        text-align: center;
+    }
+}
 /* INPUTS E SELECTS SEMPRE PRETO */
 input, select {
     color: #222 !important;
 }
 /* RESPONSIVIDADE GLOBAL */
 @media (max-width: 600px) {
-    .btn-compartilhar, .btn-inicio {
-        width: 96vw;
-        max-width: 100%;
-        min-width: unset;
-        padding: 12px 0;
-        font-size: 1em;
-        box-sizing: border-box;
-    }
-    .endereco-container input,
-    .endereco-container select {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-            }
-        input[type="date"], .inscricao-container input[type="date"] {
-            width: 100%;
-            max-width: 100%;
-            min-width: 0;
-            box-sizing: border-box;
-        }
     body {
         font-size: 1em;
     }
     .main-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 10px;
+        padding: 12px 0 0 0;
+    }
+    .header-logos {
+        flex-direction: column;
+        gap: 10px;
     }
     .main-header .logo, .logo-prefeitura-topo {
         max-width: 120px;
     }
     header nav ul {
-    max-width: 140px;
-    height: auto;
-    margin-bottom: 0;
-    display: block;
+        flex-direction: column;
+        gap: 10px;
         font-size: 1em;
         margin: 0;
     }
     .hero-section {
         padding: 18px 4px 12px 4px;
-    max-width: 160px;
-    height: auto;
-    margin-bottom: 0;
-    display: block;
+        border-radius: 0 0 18px 18px;
+    }
     .hero-section h1 {
         font-size: 1.3em;
     }
@@ -65,36 +98,20 @@ input, select {
         padding: 6px;
         box-shadow: none;
         border-radius: 0;
-    .header-logos {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
     }
-    .main-header .logo {
-        max-width: 110px;
-        margin-bottom: 0;
+    .ganhos-box, .cursos-section, .contato-section {
+        padding: 10px 4px;
+        margin: 10px 0;
+        border-radius: 10px;
     }
-    .logo-prefeitura-topo {
-        max-width: 110px;
-        margin-bottom: 0;
-    }
+    .ganhos-box h2, .cursos-title, .cursos-destaque {
         font-size: 1em;
     }
     .cta-btn {
-        width: 96vw;
-        max-width: 100%;
+        width: 100%;
         min-width: unset;
         padding: 12px 0;
         font-size: 1em;
-        box-sizing: border-box;
-    }
-    .btn-proximo, .btn-voltar, .btn-finalizar, .btn-whatsapp, .btn-inicio {
-        width: 96vw;
-        max-width: 100%;
-        min-width: unset;
-        padding: 12px 0;
-        font-size: 1em;
-        box-sizing: border-box;
     }
     .form-group input, .form-group select, .inscricao-container input, .inscricao-container select {
         min-width: 0;
@@ -277,12 +294,14 @@ main {
     margin-bottom: 16px;
     text-align: left;
     max-width: 600px;
-    margin-left: auto;
+    margin-left: 40px;
     margin-right: auto;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 12px;
+    padding-left: 12px;
 }
+
 .cta-btn {
     display: inline-block;
     background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
