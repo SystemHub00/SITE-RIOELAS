@@ -14,5 +14,24 @@ def get_gsheet_client():
 
 def append_to_sheet(data):
     client = get_gsheet_client()
-    sheet = client.open_by_key("1DOiy5jkpjfOooUHs5pvsyopDeGDql1hQYVx0js_6Ob0").worksheet("DADOS")
-    sheet.append_row(data)
+    sheet_id = os.environ.get("GOOGLE_SHEETS_ID", "1DOiy5jkpjfOooUHs5pvsyopDeGDql1hQYVx0js_6Ob0")
+    sheet_name = os.environ.get("GOOGLE_SHEETS_TAB", "DADOS")
+    max_leads = int(os.environ.get("GOOGLE_SHEETS_MAX_LEADS", 1000))
+    sheet = client.open_by_key(sheet_id).worksheet(sheet_name)
+    # Cabeçalho desejado
+    header = [
+        'Protocolo', 'Nome', 'CPF', 'Nascimento', 'Whatsapp', 'Email',
+        'CEP', 'Endereço', 'Número', 'Complemento', 'Bairro', 'Cidade', 'Estado',
+        'Curso', 'Como Conheceu'
+    ]
+    # Verifica se o cabeçalho já existe
+    existing_header = sheet.row_values(1)
+    if existing_header != header:
+        sheet.insert_row(header, 1)
+    # Proteção: não salva se já atingiu o limite de leads
+    total_leads = len(sheet.get_all_values()) - 1  # -1 por causa do cabeçalho
+    if total_leads >= max_leads:
+        raise Exception(f"Limite de leads atingido ({max_leads}). Novos dados não serão salvos.")
+    # Procura a próxima linha vazia
+    next_row = len(sheet.get_all_values()) + 1
+    sheet.insert_row(data, next_row)

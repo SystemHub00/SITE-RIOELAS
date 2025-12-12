@@ -2,68 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import csv
 import uuid
 
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+from gsheet_utils import append_to_sheet
 import os
-
-# Configurações de e-mail via variáveis de ambiente
-EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
-EMAIL_USER = os.getenv('EMAIL_USER', 'confemail75@gmail.com')
-EMAIL_PASS = os.getenv('EMAIL_PASS', '')
-EMAIL_TO = os.getenv('EMAIL_TO', 'confemail75@gmail.com')
-IMAP_USER = os.getenv('IMAP_USER', 'confemail75@gmail.com')
-
-def enviar_email_inscricao(dados):
-    assunto = 'Nova inscrição recebida - Rio+Elas'
-    corpo = 'Nova inscrição recebida:\n\n'
-    campos = [
-        'Protocolo', 'Nome', 'Gênero', 'CPF', 'Nascimento', 'Whatsapp', 'Email',
-        'CEP', 'Endereço', 'Número', 'Complemento', 'Bairro', 'Cidade', 'Estado',
-        'Local', 'Curso', 'Turma'
-    ]
-    # Montar lista de dados na mesma ordem dos campos
-    dados_completos = [
-        dados[0], # Protocolo
-        dados[1], # Nome
-        session.get('genero',''),
-        dados[2], # CPF
-        dados[3], # Nascimento
-        dados[4], # Whatsapp
-        dados[5], # Email
-        dados[6], # CEP
-        dados[7], # Endereço
-        dados[8], # Número
-        dados[9], # Complemento
-        dados[10], # Bairro
-        dados[11], # Cidade
-        dados[12], # Estado
-        session.get('local',''),
-        session.get('curso',''),
-        session.get('turma','')
-    ]
-    for campo, valor in zip(campos, dados_completos):
-        corpo += f'{campo}: {valor}\n'
-    msg = MIMEMultipart()
-    msg['From'] = EMAIL_USER
-    msg['To'] = EMAIL_TO
-    msg['Subject'] = assunto
-    msg.attach(MIMEText(corpo, 'plain'))
-    try:
-        if not EMAIL_USER or not EMAIL_PASS:
-            raise ValueError('Credenciais de e-mail não configuradas corretamente.')
-        server = smtplib.SMTP(EMAIL_HOST, EMAIL_PORT)
-        server.starttls()
-        server.login(EMAIL_USER, EMAIL_PASS)
-        server.sendmail(EMAIL_USER, EMAIL_TO, msg.as_string())
-        server.quit()
-        print('E-mail enviado com sucesso.')
-    except Exception as e:
-        print('Erro ao enviar e-mail:', e)
-        # Opcional: salvar log de erro em arquivo
-        with open('erro_email.log', 'a', encoding='utf-8') as f:
-            f.write(f'{str(e)}\n')
+import traceback
 
 app = Flask(__name__)
 app.secret_key = 'chave-secreta-para-sessao'  # Troque por uma chave forte em produção
@@ -136,11 +77,11 @@ def confirmacao():
         session.get('curso',''),
         session.get('como_conheceu','')
     ]
-    # Removido salvamento em DADOS.csv conforme solicitado
     try:
-        enviar_email_inscricao(dados)
+        append_to_sheet(dados)
     except Exception as e:
-        print('Erro ao enviar e-mail:', e)
+        print('Erro ao salvar na planilha:', e)
+        traceback.print_exc()
     return render_template('confirmacao.html', protocolo=protocolo)
 
 
