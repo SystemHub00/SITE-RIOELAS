@@ -4,29 +4,55 @@ input, select {
 }
 /* RESPONSIVIDADE GLOBAL */
 @media (max-width: 600px) {
+    .btn-compartilhar, .btn-inicio {
+        width: 96vw;
+        max-width: 100%;
+        min-width: unset;
+        padding: 12px 0;
+        font-size: 1em;
+        box-sizing: border-box;
+    }
+    .endereco-container input,
+    .endereco-container select {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+            }
+        input[type="date"], .inscricao-container input[type="date"] {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
     body {
         font-size: 1em;
     }
     .main-header {
-        padding: 12px 0 0 0;
-    }
-    .header-logos {
-        flex-direction: column;
-        gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 10px;
     }
     .main-header .logo, .logo-prefeitura-topo {
         max-width: 120px;
     }
     header nav ul {
-        flex-direction: column;
-        gap: 10px;
+    max-width: 140px;
+    height: auto;
+    margin-bottom: 0;
+    display: block;
         font-size: 1em;
         margin: 0;
     }
     .hero-section {
         padding: 18px 4px 12px 4px;
-        border-radius: 0 0 18px 18px;
-    }
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 0;
+    display: block;
     .hero-section h1 {
         font-size: 1.3em;
     }
@@ -39,20 +65,36 @@ input, select {
         padding: 6px;
         box-shadow: none;
         border-radius: 0;
+    .header-logos {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
     }
-    .ganhos-box, .cursos-section, .contato-section {
-        padding: 10px 4px;
-        margin: 10px 0;
-        border-radius: 10px;
+    .main-header .logo {
+        max-width: 110px;
+        margin-bottom: 0;
     }
-    .ganhos-box h2, .cursos-title, .cursos-destaque {
+    .logo-prefeitura-topo {
+        max-width: 110px;
+        margin-bottom: 0;
+    }
         font-size: 1em;
     }
     .cta-btn {
-        width: 100%;
+        width: 96vw;
+        max-width: 100%;
         min-width: unset;
         padding: 12px 0;
         font-size: 1em;
+        box-sizing: border-box;
+    }
+    .btn-proximo, .btn-voltar, .btn-finalizar, .btn-whatsapp, .btn-inicio {
+        width: 96vw;
+        max-width: 100%;
+        min-width: unset;
+        padding: 12px 0;
+        font-size: 1em;
+        box-sizing: border-box;
     }
     .form-group input, .form-group select, .inscricao-container input, .inscricao-container select {
         min-width: 0;
