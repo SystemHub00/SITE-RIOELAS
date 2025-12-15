@@ -196,8 +196,15 @@
                     }
                     // Validação de idade mínima
                     function maiorDeIdade(data) {
+                        // Espera data no formato dd/mm/aaaa
+                        if (!/^\d{2}\/\d{2}\/\d{4}$/.test(data)) return false;
+                        const partes = data.split('/');
+                        const dia = parseInt(partes[0], 10);
+                        const mes = parseInt(partes[1], 10) - 1; // meses começam do zero
+                        const ano = parseInt(partes[2], 10);
+                        const nasc = new Date(ano, mes, dia);
+                        if (isNaN(nasc.getTime())) return false;
                         const hoje = new Date();
-                        const nasc = new Date(data);
                         let idade = hoje.getFullYear() - nasc.getFullYear();
                         const m = hoje.getMonth() - nasc.getMonth();
                         if (m < 0 || (m === 0 && hoje.getDate() < nasc.getDate())) idade--;
