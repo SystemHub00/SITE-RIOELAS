@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição realizada com sucesso! - Rio+Elas</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/assistant.css">
     <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -118,6 +119,7 @@
     </style>
 </head>
 <body>
+    <script src="/static/assistant.js"></script>
     <header class="main-header">
         <div class="header-logos">
             <img src="https://i.postimg.cc/8kwjd1CN/logo-rio-elas.png" alt="Logo Rio+Elas" class="logo">
@@ -137,7 +139,7 @@
         </div>
         <div style="margin-bottom:18px;">Em breve entraremos em contato via WhatsApp no número {{ session['whatsapp'] if session['whatsapp'] else '' }} com mais informações sobre o curso.<br>Fique atenta(o) às mensagens e ligações!</div>
         <div class="btns">
-            <a class="btn-whatsapp" href="https://wa.me/?text=Minha%20inscri%C3%A7%C3%A3o%20no%20Rio%2BElas%20foi%20realizada!%20Protocolo:%20{{ protocolo }}" target="_blank">&#128241; Compartilhar no WhatsApp</a>
+            <a class="btn-whatsapp" href="https://wa.me/?text=Minha%20inscri%C3%A7%C3%A3o%20no%20Rio%2BElas%20foi%20realizada!%20Veja%20minha%20ficha%20de%20inscri%C3%A7%C3%A3o:%20{{ url_ficha }}" target="_blank">&#128241; Compartilhar no WhatsApp</a>
             <a class="btn-inicio" href="/">Voltar ao Início</a>
         </div>
         <div class="proximos-passos">
