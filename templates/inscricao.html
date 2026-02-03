@@ -173,8 +173,8 @@
             </div>
             <div class="form-group">
                 <label for="nascimento">Data de Nascimento *</label>
-                <input type="text" id="nascimento" name="nascimento" placeholder="dd/mm/aaaa" required maxlength="10" pattern="\d{2}/\d{2}/\d{4}">
-                <span class="error-msg" id="nascimento-error" style="display:none;">Idade mínima: 18 anos</span>
+                <input type="text" id="nascimento" name="nascimento" placeholder="dd/mm/aaaa" required maxlength="10" pattern="\d{2}/\d{2}/\d{4}" oninvalid="this.setCustomValidity('Informe uma data válida no formato dd/mm/aaaa e maior de 18 anos')" oninput="this.setCustomValidity('')">
+                <span class="error-msg" id="nascimento-error" style="display:none;position:absolute;"></span>
             </div>
             <div class="form-group">
                 <label for="whatsapp">WhatsApp *</label>
@@ -222,17 +222,52 @@
                         if (idadeStatus === 'formato') {
                             nascError.textContent = 'Data inválida. Use o formato dd/mm/aaaa';
                             nascError.style.display = 'block';
+                            mostrarBalaoErro('nascimento', nascError.textContent);
                         } else if (idadeStatus === false) {
                             nascError.textContent = 'Idade mínima: 18 anos';
                             nascError.style.display = 'block';
+                            mostrarBalaoErro('nascimento', nascError.textContent);
                         } else {
                             nascError.style.display = 'none';
+                            removerBalaoErro('nascimento');
                         }
                         if (!cpfValido || idadeStatus !== true) {
                             e.preventDefault();
                         }
+                        // Função para mostrar balão de erro
+                        function mostrarBalaoErro(inputId, mensagem) {
+                            let input = document.getElementById(inputId);
+                            let balao = document.getElementById(inputId + '-balao-erro');
+                            if (!balao) {
+                                balao = document.createElement('div');
+                                balao.id = inputId + '-balao-erro';
+                                balao.className = 'balao-erro';
+                                input.parentNode.appendChild(balao);
+                            }
+                            balao.textContent = mensagem;
+                            balao.style.display = 'block';
+                            balao.style.position = 'absolute';
+                            balao.style.background = '#fff0f3';
+                            balao.style.color = '#e91e63';
+                            balao.style.border = '1px solid #e91e63';
+                            balao.style.borderRadius = '8px';
+                            balao.style.padding = '7px 12px';
+                            balao.style.fontSize = '0.98em';
+                            balao.style.boxShadow = '0 2px 8px rgba(233,30,99,0.08)';
+                            balao.style.zIndex = '10';
+                            balao.style.left = input.offsetLeft + input.offsetWidth + 10 + 'px';
+                            balao.style.top = input.offsetTop + 'px';
+                        }
+                        function removerBalaoErro(inputId) {
+                            let balao = document.getElementById(inputId + '-balao-erro');
+                            if (balao) balao.style.display = 'none';
+                        }
                     };
                     // Máscara para CPF e WhatsApp
+                    // CSS para balão de erro
+                    const styleBalao = document.createElement('style');
+                    styleBalao.innerHTML = `.balao-erro { transition: opacity 0.2s; min-width: 180px; max-width: 260px; word-break: break-word; }`;
+                    document.head.appendChild(styleBalao);
                     document.getElementById('cpf').addEventListener('input', function(e) {
                         let v = e.target.value.replace(/\D/g, '').slice(0,11);
                         v = v.replace(/(\d{3})(\d)/, '$1.$2');
