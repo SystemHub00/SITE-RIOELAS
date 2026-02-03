@@ -199,27 +199,36 @@
                     // Validação de idade mínima
                     function maiorDeIdade(data) {
                         // Espera data no formato dd/mm/aaaa
-                        if (!/^\d{2}\/\d{2}\/\d{4}$/.test(data)) return false;
+                        if (!/^\d{2}\/\d{2}\/\d{4}$/.test(data)) return 'formato';
                         const partes = data.split('/');
                         const dia = parseInt(partes[0], 10);
                         const mes = parseInt(partes[1], 10) - 1; // meses começam do zero
                         const ano = parseInt(partes[2], 10);
                         const nasc = new Date(ano, mes, dia);
-                        if (isNaN(nasc.getTime())) return false;
+                        if (isNaN(nasc.getTime())) return 'formato';
                         const hoje = new Date();
                         let idade = hoje.getFullYear() - nasc.getFullYear();
                         const m = hoje.getMonth() - nasc.getMonth();
                         if (m < 0 || (m === 0 && hoje.getDate() < nasc.getDate())) idade--;
-                        return idade >= 18;
+                        return idade >= 18 ? true : false;
                     }
                     document.getElementById('form-inscricao').onsubmit = function(e) {
                         let cpf = document.getElementById('cpf').value;
-                        let nasc = document.getElementById('nascimento').value;
+                        let nasc = document.getElementById('nascimento').value.trim();
                         let cpfValido = validarCPF(cpf);
-                        let idadeValida = maiorDeIdade(nasc);
+                        let idadeStatus = maiorDeIdade(nasc);
                         document.getElementById('cpf-error').style.display = cpfValido ? 'none' : 'block';
-                        document.getElementById('nascimento-error').style.display = idadeValida ? 'none' : 'block';
-                        if (!cpfValido || !idadeValida) {
+                        let nascError = document.getElementById('nascimento-error');
+                        if (idadeStatus === 'formato') {
+                            nascError.textContent = 'Data inválida. Use o formato dd/mm/aaaa';
+                            nascError.style.display = 'block';
+                        } else if (idadeStatus === false) {
+                            nascError.textContent = 'Idade mínima: 18 anos';
+                            nascError.style.display = 'block';
+                        } else {
+                            nascError.style.display = 'none';
+                        }
+                        if (!cpfValido || idadeStatus !== true) {
                             e.preventDefault();
                         }
                     };
