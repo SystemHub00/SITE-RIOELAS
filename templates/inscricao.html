@@ -217,17 +217,11 @@
                         let cpfValido = validarCPF(cpf);
                         let idadeStatus = maiorDeIdade(nasc);
                         document.getElementById('cpf-error').style.display = cpfValido ? 'none' : 'block';
-                        let nascError = document.getElementById('nascimento-error');
                         if (idadeStatus === 'formato') {
-                            nascError.textContent = 'Data inválida. Use o formato dd/mm/aaaa';
-                            nascError.style.display = 'block';
-                            mostrarBalaoErro('nascimento', nascError.textContent);
+                            mostrarBalaoErro('nascimento', 'Data inválida. Use o formato dd/mm/aaaa');
                         } else if (idadeStatus === false) {
-                            nascError.textContent = 'Idade mínima: 18 anos';
-                            nascError.style.display = 'block';
-                            mostrarBalaoErro('nascimento', nascError.textContent);
+                            mostrarBalaoErro('nascimento', 'Idade mínima: 18 anos');
                         } else {
-                            nascError.style.display = 'none';
                             removerBalaoErro('nascimento');
                         }
                         if (!cpfValido || idadeStatus !== true) {
@@ -241,6 +235,7 @@
                                 balao = document.createElement('div');
                                 balao.id = inputId + '-balao-erro';
                                 balao.className = 'balao-erro';
+                                input.parentNode.style.position = 'relative';
                                 input.parentNode.appendChild(balao);
                             }
                             balao.textContent = mensagem;
@@ -254,8 +249,11 @@
                             balao.style.fontSize = '0.98em';
                             balao.style.boxShadow = '0 2px 8px rgba(233,30,99,0.08)';
                             balao.style.zIndex = '10';
-                            balao.style.left = input.offsetLeft + input.offsetWidth + 10 + 'px';
-                            balao.style.top = input.offsetTop + 'px';
+                            // Posição correta ao lado do input
+                            const inputRect = input.getBoundingClientRect();
+                            const parentRect = input.parentNode.getBoundingClientRect();
+                            balao.style.left = (input.offsetLeft + input.offsetWidth + 10) + 'px';
+                            balao.style.top = (input.offsetTop + (input.offsetHeight/2) - 18) + 'px';
                         }
                         function removerBalaoErro(inputId) {
                             let balao = document.getElementById(inputId + '-balao-erro');
