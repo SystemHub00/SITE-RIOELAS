@@ -204,9 +204,11 @@
                         if (!/^\d{2}\/\d{2}\/\d{4}$/.test(data)) return 'formato';
                         const partes = data.split('/');
                         const dia = parseInt(partes[0], 10);
-                        const mes = parseInt(partes[1], 10) - 1; // meses começam do zero
+                        const mes = parseInt(partes[1], 10);
                         const ano = parseInt(partes[2], 10);
-                        const nasc = new Date(ano, mes, dia);
+                        if (mes < 1 || mes > 12) return 'mes';
+                        if (dia < 1 || dia > 32) return 'dia';
+                        const nasc = new Date(ano, mes - 1, dia);
                         if (isNaN(nasc.getTime())) return 'formato';
                         const hoje = new Date();
                         let idade = hoje.getFullYear() - nasc.getFullYear();
@@ -217,6 +219,30 @@
                         return true;
                     }
                     document.getElementById('form-inscricao').onsubmit = function(e) {
+                                                let email = document.getElementById('email').value.trim();
+                                                let emailValido = validarEmailPermitido(email);
+                                                if (!emailValido) {
+                                                    mostrarBalaoErro('email', 'Só são aceitos emails gmail, hotmail, outlook, yahoo ou icloud');
+                                                } else {
+                                                    removerBalaoErro('email');
+                                                }
+                                                if (!emailValido) {
+                                                    e.preventDefault();
+                                                }
+                                            // Validação de email permitido
+                                            function validarEmailPermitido(email) {
+                                                const dominiosPermitidos = [
+                                                    'gmail.com',
+                                                    'hotmail.com',
+                                                    'outlook.com',
+                                                    'yahoo.com',
+                                                    'icloud.com'
+                                                ];
+                                                const partes = email.split('@');
+                                                if (partes.length !== 2) return false;
+                                                const dominio = partes[1].toLowerCase();
+                                                return dominiosPermitidos.includes(dominio);
+                                            }
                         let cpf = document.getElementById('cpf').value;
                         let nasc = document.getElementById('nascimento').value.trim();
                         let cpfValido = validarCPF(cpf);
@@ -224,6 +250,10 @@
                         document.getElementById('cpf-error').style.display = cpfValido ? 'none' : 'block';
                         if (idadeStatus === 'formato') {
                             mostrarBalaoErro('nascimento', 'Data inválida. Use o formato dd/mm/aaaa');
+                        } else if (idadeStatus === 'mes') {
+                            mostrarBalaoErro('nascimento', 'Mês inválido. Digite um mês entre 01 e 12');
+                        } else if (idadeStatus === 'dia') {
+                            mostrarBalaoErro('nascimento', 'Dia inválido. Digite um dia entre 01 e 32');
                         } else if (idadeStatus === 'minima' || idadeStatus === 'maxima') {
                             mostrarBalaoErro('nascimento', 'Idade permitida: de 18 até 90 anos');
                         } else {
@@ -300,9 +330,9 @@
                     </script>
             </div>
             <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                <span class="error-msg" style="display:none;">Email inválido</span>
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                <div class="balao-erro" id="email-balao-erro" style="display:none; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;"></div>
             </div>
             <div class="form-btns">
                 <button type="button" class="btn-voltar">&lt; VOLTAR</button>
