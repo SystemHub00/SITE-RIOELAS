@@ -28,18 +28,39 @@ def home():
 @app.route('/inscricao', methods=['GET', 'POST'])
 def inscricao():
     if request.method == 'POST':
+        from datetime import datetime
         session['nome'] = request.form.get('nome')
         session['cpf'] = request.form.get('cpf')
-        session['nascimento'] = request.form.get('nascimento')
+        nascimento = request.form.get('nascimento')
+        session['nascimento'] = nascimento
         session['whatsapp'] = request.form.get('whatsapp')
         session['email'] = request.form.get('email')
         session['genero'] = request.form.get('genero')
+        # Validação de idade máxima
+        try:
+            if nascimento:
+                # Aceita tanto yyyy-mm-dd (formulário HTML) quanto dd/mm/yyyy (usuário)
+                if '-' in nascimento:
+                    data_nasc = datetime.strptime(nascimento, '%Y-%m-%d')
+                else:
+                    data_nasc = datetime.strptime(nascimento, '%d/%m/%Y')
+                hoje = datetime.today()
+                idade = (hoje - data_nasc).days // 365
+                if idade > 90:
+                    return render_template('inscricao.html', erro_nascimento='Idade permitida: de 18 até 90 anos')
+                if idade < 18:
+                    return render_template('inscricao.html', erro_nascimento='Idade permitida: de 18 até 90 anos')
+        except Exception:
+            return render_template('inscricao.html', erro_nascimento='Data de nascimento inválida.')
         return redirect(url_for('endereco'))
     return render_template('inscricao.html')
 
 @app.route('/endereco', methods=['GET', 'POST'])
 def endereco():
     if request.method == 'POST':
+        cep = request.form.get('cep', '').replace('-', '').strip()
+        if not (cep.isdigit() and len(cep) == 8):
+            return render_template('endereco.html', erro_cep='CEP inválido. Informe no formato 00000-000.')
         session['cep'] = request.form.get('cep')
         session['endereco'] = request.form.get('endereco')
         session['numero'] = request.form.get('numero')

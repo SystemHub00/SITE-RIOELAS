@@ -188,20 +188,16 @@
                 <label for="cep">CEP *</label>
                 <div class="cep-row">
                     <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" pattern="\d{5}-\d{3}" required>
-                    <span class="error-msg" id="cep-error" style="display:none;">CEP inválido</span>
+                    {% if erro_cep %}
+                    <div class="balao-erro" id="cep-balao-erro" style="display:block; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;">{{ erro_cep }}</div>
+                    {% endif %}
                     <script>
-                    // Máscara e validação de CEP
+                    // Máscara de CEP
                     document.getElementById('cep').addEventListener('input', function(e) {
                         let v = e.target.value.replace(/\D/g, '').slice(0,8);
                         if (v.length > 5) v = v.slice(0,5) + '-' + v.slice(5);
                         e.target.value = v;
                     });
-                    document.getElementById('form-endereco').onsubmit = function(e) {
-                        let cep = document.getElementById('cep').value.replace(/\D/g, '');
-                        let valido = cep.length === 8;
-                        document.getElementById('cep-error').style.display = valido ? 'none' : 'block';
-                        if (!valido) e.preventDefault();
-                    };
                     </script>
                 </div>
             </div>
