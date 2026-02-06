@@ -29,11 +29,28 @@ def home():
 def inscricao():
     if request.method == 'POST':
         from datetime import datetime
-        session['nome'] = request.form.get('nome')
+        nome = request.form.get('nome')
+        if nome and len(nome) > 50:
+            return render_template('inscricao.html', erro_nome='Nome deve ter no máximo 50 caracteres.')
+        session['nome'] = nome
         session['cpf'] = request.form.get('cpf')
         nascimento = request.form.get('nascimento')
         session['nascimento'] = nascimento
-        session['whatsapp'] = request.form.get('whatsapp')
+        whatsapp = request.form.get('whatsapp')
+        # Validação de DDD do WhatsApp
+        ddds_validos = {
+            '68','96','92','97','91','93','94','69','95','63', # Norte
+            '82','71','73','74','75','77','85','88','98','99','83','81','87','86','89','84','79', # Nordeste
+            '61','62','64','65','66','67', # Centro-Oeste
+            '27','28','31','32','33','34','35','37','38','21','22','24','11','12','13','14','15','16','17','18','19', # Sudeste
+            '41','42','43','44','45','46','47','48','49','51','53','54','55' # Sul
+        }
+        if whatsapp:
+            import re
+            match = re.match(r'^(\d{2})', whatsapp)
+            if not match or match.group(1) not in ddds_validos:
+                return render_template('inscricao.html', erro_whatsapp='DDD do WhatsApp inválido. Informe um número com DDD válido do Brasil.')
+        session['whatsapp'] = whatsapp
         session['email'] = request.form.get('email')
         session['genero'] = request.form.get('genero')
         # Validação de idade máxima
