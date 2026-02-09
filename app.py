@@ -76,8 +76,11 @@ def inscricao():
 def endereco():
     if request.method == 'POST':
         cep = request.form.get('cep', '').replace('-', '').strip()
+        # Aceita apenas CEPs do RJ: 20xxx-xxx, 21xxx-xxx, 22xxx-xxx, 28xxx-xxx
         if not (cep.isdigit() and len(cep) == 8):
             return render_template('endereco.html', erro_cep='CEP inválido. Informe no formato 00000-000.')
+        if not (cep.startswith('20') or cep.startswith('21') or cep.startswith('22') or cep.startswith('28')):
+            return render_template('endereco.html', erro_cep='CEP permitido apenas do estado do Rio de Janeiro (iniciando com 20, 21, 22 ou 28).')
         session['cep'] = request.form.get('cep')
         session['endereco'] = request.form.get('endereco')
         session['numero'] = request.form.get('numero')
