@@ -153,6 +153,10 @@
         <p class="inscricao-sub">Preencha seus dados para começarmos sua inscrição</p>
         <form id="form-inscricao" method="POST" action="/inscricao" autocomplete="off">
             <div class="form-group">
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                                <div class="balao-erro" id="email-balao-erro" style="display:none; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;"></div>
                 <label for="nome">Nome Completo *</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
             </div>
@@ -330,9 +334,9 @@
                     </script>
             </div>
             <div class="form-group">
-                <label for="email">E-mail *</label>
-                <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
-                <div class="balao-erro" id="email-balao-erro" style="display:none; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;"></div>
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                <span class="error-msg" style="display:none;">Email inválido</span>
             </div>
             <div class="form-btns">
                 <button type="button" class="btn-voltar">&lt; VOLTAR</button>
