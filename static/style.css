@@ -1,3 +1,28 @@
+/* Select estilizado para inputs bonitos */
+select {
+    background: #fff0f6;
+    color: #e91e63;
+    border: 1.5px solid #f8bbd0;
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 1.08em;
+    font-family: 'Wise', Arial, sans-serif;
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-shadow: 0 2px 8px rgba(233,30,99,0.08);
+    margin-bottom: 8px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 24px 24px;
+}
+select:focus {
+    border: 2px solid #e91e63;
+    box-shadow: 0 4px 16px rgba(233,30,99,0.12);
+}
 .cta-btn {
     animation: pulse-scale 1s infinite alternate;
 }
@@ -234,14 +259,19 @@ body {
 }
 @media (max-width: 600px) {
     .main-header .logo {
-        max-width: 90px;
-        width: 100%;
-        min-width: 40px;
+        max-width: 10px;
+        width: auto;
+        min-width: unset;
         height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .logo-prefeitura-topo {
-        max-width: 98vw;
-        width: 98vw;
+        max-width: 200px;
+        width: 100%;
+        height: 80px;
+        object-fit: contain;
     }
 }
 @media (max-width: 600px) {

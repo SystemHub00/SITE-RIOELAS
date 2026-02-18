@@ -189,14 +189,22 @@
                 <div class="cep-row">
                     <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" pattern="\d{5}-\d{3}" required>
                     {% if erro_cep %}
-                    <div class="balao-erro" id="cep-balao-erro" style="display:block; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;">{{ erro_cep }}</div>
+                    <div class="balao-erro" id="cep-balao-erro">{{ erro_cep }}</div>
                     {% endif %}
                     <script>
-                    // Máscara de CEP
-                    document.getElementById('cep').addEventListener('input', function(e) {
+                    // Máscara e validação de CEP
+                    const cepInput = document.getElementById('cep');
+                    cepInput.addEventListener('input', function(e) {
                         let v = e.target.value.replace(/\D/g, '').slice(0,8);
                         if (v.length > 5) v = v.slice(0,5) + '-' + v.slice(5);
                         e.target.value = v;
+                    });
+                    cepInput.addEventListener('blur', function(e) {
+                        if (!/^\d{5}-\d{3}$/.test(e.target.value)) {
+                            e.target.setCustomValidity('Digite o CEP no formato 00000-000');
+                        } else {
+                            e.target.setCustomValidity('');
+                        }
                     });
                     </script>
                 </div>
@@ -212,7 +220,11 @@
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
-                    <input type="text" id="complemento" name="complemento" placeholder="Apto, Casa...">
+                    <select id="complemento" name="complemento">
+                        <option value="">Selecione</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Apto">Apto</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
@@ -226,7 +238,36 @@
                 </div>
                 <div class="form-group">
                     <label for="estado">Estado *</label>
-                    <input type="text" id="estado" name="estado" placeholder="UF" required>
+                    <select id="estado" name="estado" required>
+                        <option value="">Selecione</option>
+                        <option value="AC">AC – Acre</option>
+                        <option value="AL">AL – Alagoas</option>
+                        <option value="AP">AP – Amapá</option>
+                        <option value="AM">AM – Amazonas</option>
+                        <option value="BA">BA – Bahia</option>
+                        <option value="CE">CE – Ceará</option>
+                        <option value="DF">DF – Distrito Federal</option>
+                        <option value="ES">ES – Espírito Santo</option>
+                        <option value="GO">GO – Goiás</option>
+                        <option value="MA">MA – Maranhão</option>
+                        <option value="MT">MT – Mato Grosso</option>
+                        <option value="MS">MS – Mato Grosso do Sul</option>
+                        <option value="MG">MG – Minas Gerais</option>
+                        <option value="PA">PA – Pará</option>
+                        <option value="PB">PB – Paraíba</option>
+                        <option value="PR">PR – Paraná</option>
+                        <option value="PE">PE – Pernambuco</option>
+                        <option value="PI">PI – Piauí</option>
+                        <option value="RJ">RJ – Rio de Janeiro</option>
+                        <option value="RN">RN – Rio Grande do Norte</option>
+                        <option value="RS">RS – Rio Grande do Sul</option>
+                        <option value="RO">RO – Rondônia</option>
+                        <option value="RR">RR – Roraima</option>
+                        <option value="SC">SC – Santa Catarina</option>
+                        <option value="SP">SP – São Paulo</option>
+                        <option value="SE">SE – Sergipe</option>
+                        <option value="TO">TO – Tocantins</option>
+                    </select>
                 </div>
             </div>
             <div class="form-btns">
