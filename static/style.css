@@ -7,7 +7,7 @@
         transform: scale(1);
     }
     100% {
-        transform: scale(1.15);
+        transform: scale(1.08);
     }
 }
 @media (max-width: 600px) {
@@ -51,10 +51,25 @@
     .cta-btn {
         width: 100% !important;
         min-width: unset !important;
-        max-width: 100% !important;
+        max-width: 100vw !important;
         box-sizing: border-box;
         display: block;
         text-align: center;
+        animation: pulse-scale 1s infinite alternate;
+        will-change: transform;
+    }
+    .cta-btn:active, .cta-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #e91e6333;
+    }
+    .cta-btn {
+        overflow: hidden;
+    }
+    .cta-btn-container, .cta-btn-parent, div[style*="text-align:center"] {
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
 /* INPUTS E SELECTS SEMPRE PRETO */
@@ -63,46 +78,59 @@ input, select {
 }
 /* RESPONSIVIDADE GLOBAL */
 @media (max-width: 600px) {
+    html, body {
+        font-size: 15px;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+    }
     body {
         font-size: 1em;
+        padding: 0;
+        margin: 0;
     }
     .main-header {
-        padding: 12px 0 0 0;
+        padding: 8px 0 0 0;
     }
     .header-logos {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
+        align-items: center;
     }
     .main-header .logo, .logo-prefeitura-topo {
-        max-width: 120px;
+        max-width: 90vw;
+        height: auto;
     }
     header nav ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
         font-size: 1em;
         margin: 0;
+        padding: 0;
     }
     .hero-section {
-        padding: 18px 4px 12px 4px;
-        border-radius: 0 0 18px 18px;
+        padding: 12px 2vw 8px 2vw;
+        border-radius: 0 0 14px 14px;
     }
     .hero-section h1 {
-        font-size: 1.3em;
+        font-size: 1.1em;
+        word-break: break-word;
     }
     .hero-section .benefits {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
     main {
         max-width: 100vw;
-        padding: 6px;
+        padding: 4px;
         box-shadow: none;
         border-radius: 0;
+        margin: 0;
     }
     .ganhos-box, .cursos-section, .contato-section {
-        padding: 10px 4px;
-        margin: 10px 0;
-        border-radius: 10px;
+        padding: 8px 2vw;
+        margin: 8px 0;
+        border-radius: 8px;
     }
     .ganhos-box h2, .cursos-title, .cursos-destaque {
         font-size: 1em;
@@ -110,41 +138,52 @@ input, select {
     .cta-btn {
         width: 100%;
         min-width: unset;
-        padding: 12px 0;
+        padding: 10px 0;
         font-size: 1em;
+        border-radius: 18px;
     }
     .form-group input, .form-group select, .inscricao-container input, .inscricao-container select {
         min-width: 0;
         max-width: 100%;
         font-size: 1em;
         padding: 8px 8px;
+        border-radius: 10px;
     }
     .form-btns, .btns {
         flex-direction: column !important;
-        gap: 10px !important;
+        gap: 8px !important;
         width: 100%;
         align-items: stretch;
     }
     .btn-proximo, .btn-voltar, .btn-finalizar, .btn-whatsapp, .btn-inicio {
         min-width: unset;
         width: 100%;
-        padding: 12px 0;
+        padding: 10px 0;
         font-size: 1em;
+        border-radius: 16px;
     }
     .protocolo-box, .proximos-passos, .info-box, .confirmacao-box {
-        padding: 10px 4px;
+        padding: 8px 2vw;
         font-size: 1em;
+        border-radius: 8px;
     }
     .sucesso-container, .inscricao-container, .endereco-container, .curso-container, .revisao-container {
-        max-width: 98vw;
-        padding: 10px 2vw 10px 2vw !important;
+        max-width: 99vw;
+        padding: 8px 2vw 8px 2vw !important;
         border-radius: 10px;
-        margin: 10px auto 0 auto;
+        margin: 8px auto 0 auto;
         box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    img, .logo, .logo-prefeitura-topo {
+        max-width: 95vw !important;
+        height: auto !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     footer {
         font-size: 0.95em;
-        padding: 10px 0;
+        padding: 8px 0;
     }
 }
 body {
@@ -164,20 +203,63 @@ body {
     text-align: center;
     box-shadow: 0 4px 24px 0 rgba(233,30,99,0.07);
 }
+/* Ajuste das logos lado a lado e responsivas */
 .header-logos {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 18px;
     margin-bottom: 10px;
+    width: 100%;
 }
+/* Logo Rio+Elas padrão */
 .main-header .logo {
-    max-width: 120px;
+    max-width: 140px;
+    width: 28vw;
+    min-width: 80px;
+    height: auto;
     margin-bottom: 0;
+    object-fit: contain;
+    display: block;
 }
+/* Logo Prefeitura maior */
 .logo-prefeitura-topo {
-    max-width: 180px;
+    max-width: 340px;
+    width: 70vw;
+    height: auto;
     margin-bottom: 0;
+    object-fit: contain;
+    display: block;
+}
+@media (max-width: 600px) {
+    .main-header .logo {
+        max-width: 90px;
+        width: 100%;
+        min-width: 40px;
+        height: auto;
+    }
+    .logo-prefeitura-topo {
+        max-width: 98vw;
+        width: 98vw;
+    }
+}
+@media (max-width: 600px) {
+    .main-header .logo,
+    .logo-prefeitura-topo {
+        max-width: 44vw;
+        width: 44vw;
+        min-width: 70px;
+    }
+}
+@media (max-width: 600px) {
+    .header-logos {
+        gap: 10px;
+    }
+    .main-header .logo, .logo-prefeitura-topo {
+        max-width: 44vw;
+        width: 44vw;
+    }
 }
 header nav ul {
     list-style: none;
