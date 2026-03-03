@@ -214,22 +214,26 @@
                     <option value="PROJETO DJALMA | BARRA DA TIJUCA">PROJETO DJALMA | BARRA DA TIJUCA</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="curso">Curso *</label>
-                <select id="curso" name="curso" required>
-                    <option value="">Selecione o curso</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="turma">Turma *</label>
-                <select id="turma" name="turma" required>
-                    <option value="">Selecione a turma</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="horario">Horário</label>
-                <input type="text" id="horario" name="horario" readonly style="background:#ede7f6;color:#351c75;font-weight:bold;" placeholder="Selecione a turma" />
-            </div>
+                <div class="form-group">
+                    <label for="curso">Curso *</label>
+                    <select id="curso" name="curso" required>
+                        <option value="">Selecione o curso</option>
+                        <option value="TRANSISTA">TRANSISTA</option>
+                        <option value="EXTENSÃO DE CÍLIOS">EXTENSÃO DE CÍLIOS</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="turma">Turma *</label>
+                    <select id="turma" name="turma" required>
+                        <option value="">Selecione a turma</option>
+                        <option value="TURMA TRANSISTA 01">TURMA TRANSISTA 01</option>
+                        <option value="TURMA EXTENSÃO DE CÍLIOS 01">TURMA EXTENSÃO DE CÍLIOS 01</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="horario">Horário</label>
+                    <input type="text" id="horario" name="horario" readonly style="background:#ede7f6;color:#351c75;font-weight:bold;" placeholder="Selecione a turma" />
+                </div>
             <div class="form-btns">
                 <button type="button" class="btn-voltar">&lt; Voltar</button>
                 <button type="submit" class="btn-proximo">Próximo <span style="font-size:1.2em;vertical-align:middle;">&#8594;</span></button>
@@ -237,30 +241,33 @@
         </form>
     </div>
     <script>
-        // Informações das turmas
+
+        // Informações das turmas ATUALIZADAS
         const turmasInfo = [
             {
-                turma: 'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR',
-                curso: 'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR',
+                turma: 'TURMA TRANSISTA 01',
+                curso: 'TRANSISTA',
                 local: 'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR',
+                dias: 'segunda, terça',
                 horario: '10h às 11h'
             },
             {
-                turma: 'DESIGNER DE UNHAS - PROJETO DJALMA | BARRA DA TIJUCA',
-                curso: 'DESIGNER DE UNHAS',
+                turma: 'TURMA EXTENSÃO DE CÍLIOS 01',
+                curso: 'EXTENSÃO DE CÍLIOS',
                 local: 'PROJETO DJALMA | BARRA DA TIJUCA',
+                dias: 'segunda, terça',
                 horario: '09h às 12h'
             }
         ];
 
         const cursosPorLocal = {
-            'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR': ['CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR'],
-            'PROJETO DJALMA | BARRA DA TIJUCA': ['DESIGNER DE UNHAS']
+            'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR': ['TRANSISTA'],
+            'PROJETO DJALMA | BARRA DA TIJUCA': ['EXTENSÃO DE CÍLIOS']
         };
 
         const turmasPorCursoLocal = {
-            'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR|CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR': ['CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR'],
-            'PROJETO DJALMA | BARRA DA TIJUCA|DESIGNER DE UNHAS': ['DESIGNER DE UNHAS - PROJETO DJALMA | BARRA DA TIJUCA']
+            'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR|TRANSISTA': ['TURMA TRANSISTA 01'],
+            'PROJETO DJALMA | BARRA DA TIJUCA|EXTENSÃO DE CÍLIOS': ['TURMA EXTENSÃO DE CÍLIOS 01']
         };
 
         const localSelect = document.getElementById('local');
@@ -303,7 +310,7 @@
             const turma = this.value;
             const turmaObj = turmasInfo.find(t => t.turma === turma);
             if (turmaObj) {
-                horarioInput.value = turmaObj.horario;
+                horarioInput.value = turmaObj.dias + ' | ' + turmaObj.horario;
             } else {
                 horarioInput.value = '';
             }
