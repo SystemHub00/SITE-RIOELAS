@@ -12,7 +12,7 @@
                 color: #222 !important;
             }
         body {
-            background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
+            background: linear-gradient(120deg, #fff 60%, #ede7f6 100%);
             font-family: 'Wise', Arial, sans-serif;
             min-height: 100vh;
             margin: 0;
@@ -32,14 +32,14 @@
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: #f8bbd0;
+            background: #ede7f6;
             border-radius: 8px;
             margin-bottom: 24px;
             overflow: hidden;
         }
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            background: linear-gradient(90deg, #351c75 0%, #6d44b8 100%);
             border-radius: 8px;
             transition: width 0.3s;
             width: 99%;
@@ -47,12 +47,12 @@
         .curso-container h2 {
             font-size: 2em;
             font-weight: 900;
-            color: #e91e63;
+            color: #351c75;
             margin-bottom: 8px;
             letter-spacing: -1px;
         }
         .curso-sub {
-            color: #e91e63;
+            color: #351c75;
             font-size: 1.08em;
             margin-bottom: 24px;
         }
@@ -64,7 +64,7 @@
         }
         .form-group label {
             font-weight: 700;
-            color: #e91e63;
+            color: #351c75;
             margin-bottom: 6px;
             font-size: 1.08em;
         }
@@ -73,31 +73,60 @@
             margin-left: auto;
             margin-right: auto;
             width: 100%;
-               max-width: 420px;
+            max-width: 420px;
             min-width: 260px;
             padding: 18px 16px;
             border-radius: 12px;
-            border: 1.5px solid #f8bbd0;
+            border: 1.5px solid #351c75;
             font-size: 1.08em;
             font-family: 'Wise', Arial, sans-serif;
-               background: #fff0f6;
-               color: #222;
+            background: #ede7f6;
+            color: #222;
             transition: border 0.2s;
             outline: none;
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23351c75" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
             background-repeat: no-repeat;
             background-position: right 14px center;
             background-size: 22px 22px;
         }
+        /* Input de horário igual aos selects */
+        #horario {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            max-width: 420px;
+            min-width: 260px;
+            padding: 18px 16px;
+            border-radius: 12px;
+            border: 1.5px solid #351c75;
+            font-size: 1.08em;
+            font-family: 'Wise', Arial, sans-serif;
+            background: #ede7f6;
+            color: #222;
+            font-weight: bold;
+            transition: border 0.2s;
+            outline: none;
+            box-sizing: border-box;
+        }
         .form-btns {
             display: flex;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             margin-top: 18px;
             gap: 18px;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .form-btns {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
         }
         .form-btns .btn-voltar, .form-btns .btn-proximo {
             min-width: 220px;
@@ -118,17 +147,17 @@
             transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
         }
         .form-btns .btn-voltar {
-            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            background: linear-gradient(90deg, #351c75 0%, #6d44b8 100%);
             color: #fff;
         }
         .form-btns .btn-proximo {
-            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            background: linear-gradient(90deg, #351c75 0%, #6d44b8 100%);
             color: #fff;
         }
         }
         .btn-voltar, .btn-proximo {
             min-width: 200px;
-            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            background: linear-gradient(90deg, #351c75 0%, #6d44b8 100%);
             color: #fff;
             border: none;
             border-radius: 12px;
@@ -137,7 +166,7 @@
             font-weight: 800;
             font-family: 'Wise', Arial, sans-serif;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+            box-shadow: 0 2px 8px rgba(53,28,117,0.10);
             letter-spacing: 0.5px;
             transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
             outline: none;
@@ -145,12 +174,12 @@
             display: inline-block;
         }
         .btn-proximo:hover {
-            background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
-            box-shadow: 0 4px 16px rgba(233,30,99,0.12);
+            background: linear-gradient(90deg, #6d44b8 0%, #351c75 100%);
+            box-shadow: 0 4px 16px rgba(53,28,117,0.12);
         }
         .btn-voltar:hover {
-            background: #fff0f6;
-            color: #e91e63;
+            background: #ede7f6;
+            color: #351c75;
         }
         @media (max-width: 600px) {
             .curso-container {
@@ -166,7 +195,7 @@
     <script src="/static/assistant.js"></script>
     <header class="main-header">
         <div class="header-logos">
-            <img src="/static/logo-rio-elas.png" alt="Logo Rio+Elas" class="logo">
+            <img src="/static/logo_fgm.png" alt="Logo FGM" class="logo">
             <img src="/static/logo-prefeitura.png" alt="Prefeitura do Rio" class="logo-prefeitura-topo">
         </div>
     </header>
@@ -181,9 +210,8 @@
                 <label for="local">Local do Curso *</label>
                 <select id="local" name="local" required>
                     <option value="">Selecione o local</option>
-                    <option value="Unidade Centro">Unidade Centro</option>
-                    <option value="Unidade Zona Norte">Unidade Zona Norte</option>
-                    <option value="Unidade Zona Oeste">Unidade Zona Oeste</option>
+                    <option value="CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR">CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR</option>
+                    <option value="PROJETO DJALMA | BARRA DA TIJUCA">PROJETO DJALMA | BARRA DA TIJUCA</option>
                 </select>
             </div>
             <div class="form-group">
@@ -198,6 +226,10 @@
                     <option value="">Selecione a turma</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="horario">Horário</label>
+                <input type="text" id="horario" name="horario" readonly style="background:#ede7f6;color:#351c75;font-weight:bold;" placeholder="Selecione a turma" />
+            </div>
             <div class="form-btns">
                 <button type="button" class="btn-voltar">&lt; Voltar</button>
                 <button type="submit" class="btn-proximo">Próximo <span style="font-size:1.2em;vertical-align:middle;">&#8594;</span></button>
@@ -205,42 +237,78 @@
         </form>
     </div>
     <script>
-        // Lógica dinâmica de cursos e turmas por local
+        // Informações das turmas
+        const turmasInfo = [
+            {
+                turma: 'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR',
+                curso: 'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR',
+                local: 'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR',
+                horario: '10h às 11h'
+            },
+            {
+                turma: 'DESIGNER DE UNHAS - PROJETO DJALMA | BARRA DA TIJUCA',
+                curso: 'DESIGNER DE UNHAS',
+                local: 'PROJETO DJALMA | BARRA DA TIJUCA',
+                horario: '09h às 12h'
+            }
+        ];
+
         const cursosPorLocal = {
-            'Unidade Centro': ['Trancista', 'Designer de Sobrancelhas'],
-            'Unidade Zona Norte': ['Extensão de Cílios', 'Trancista'],
-            'Unidade Zona Oeste': ['Designer de Sobrancelhas', 'Trancista']
+            'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR': ['CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR'],
+            'PROJETO DJALMA | BARRA DA TIJUCA': ['DESIGNER DE UNHAS']
         };
-        const turmasPorCurso = {
-            'Trancista': ['05, 06, 07/01/26 | 09h-16h'],
-            'Designer de Sobrancelhas': ['10, 11, 12/01/26 | 13h-18h'],
-            'Extensão de Cílios': ['15, 16, 17/01/26 | 09h-16h']
+
+        const turmasPorCursoLocal = {
+            'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR|CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR': ['CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR'],
+            'PROJETO DJALMA | BARRA DA TIJUCA|DESIGNER DE UNHAS': ['DESIGNER DE UNHAS - PROJETO DJALMA | BARRA DA TIJUCA']
         };
+
         const localSelect = document.getElementById('local');
         const cursoSelect = document.getElementById('curso');
         const turmaSelect = document.getElementById('turma');
+        const horarioInput = document.getElementById('horario');
 
         localSelect.addEventListener('change', function() {
+            const local = this.value;
             cursoSelect.innerHTML = '<option value="">Selecione o curso</option>';
             turmaSelect.innerHTML = '<option value="">Selecione a turma</option>';
-            const cursos = cursosPorLocal[localSelect.value] || [];
-            cursos.forEach(curso => {
-                const opt = document.createElement('option');
-                opt.value = curso;
-                opt.textContent = curso;
-                cursoSelect.appendChild(opt);
-            });
+            horarioInput.value = '';
+            if (cursosPorLocal[local]) {
+                cursosPorLocal[local].forEach(curso => {
+                    const opt = document.createElement('option');
+                    opt.value = curso;
+                    opt.textContent = curso;
+                    cursoSelect.appendChild(opt);
+                });
+            }
         });
+
         cursoSelect.addEventListener('change', function() {
+            const local = localSelect.value;
+            const curso = this.value;
             turmaSelect.innerHTML = '<option value="">Selecione a turma</option>';
-            const turmas = turmasPorCurso[cursoSelect.value] || [];
-            turmas.forEach(turma => {
-                const opt = document.createElement('option');
-                opt.value = turma;
-                opt.textContent = turma;
-                turmaSelect.appendChild(opt);
-            });
+            horarioInput.value = '';
+            const key = local + '|' + curso;
+            if (turmasPorCursoLocal[key]) {
+                turmasPorCursoLocal[key].forEach(turma => {
+                    const opt = document.createElement('option');
+                    opt.value = turma;
+                    opt.textContent = turma;
+                    turmaSelect.appendChild(opt);
+                });
+            }
         });
+
+        turmaSelect.addEventListener('change', function() {
+            const turma = this.value;
+            const turmaObj = turmasInfo.find(t => t.turma === turma);
+            if (turmaObj) {
+                horarioInput.value = turmaObj.horario;
+            } else {
+                horarioInput.value = '';
+            }
+        });
+
         document.querySelector('.btn-voltar').onclick = function() {
             window.location.href = '/endereco';
         };

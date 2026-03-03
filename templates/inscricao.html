@@ -10,7 +10,7 @@
     <style>
                 .form-group label {
                     font-weight: 400;
-                    color: #e91e63;
+                    color: #351c75;
                     margin-bottom: 8px;
                     font-size: 1.08em;
                     text-align: right;
@@ -18,7 +18,7 @@
                     width: 100%;
                 }
         body {
-            background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
+            background: linear-gradient(120deg, #fff 60%, #b3a0d7 100%);
             font-family: 'Wise', 'Segoe UI', Arial, sans-serif;
         }
         .inscricao-container {
@@ -34,9 +34,10 @@
         .inscricao-container h2 {
             font-size: 2.2em;
             font-weight: 900;
-            color: #e91e63;
+            color: #351c75 !important;
             margin-bottom: 28px;
             letter-spacing: -1px;
+            text-shadow: 0 2px 8px #b3a0d7;
         }
         .inscricao-container form {
             display: flex;
@@ -45,6 +46,45 @@
             align-items: stretch;
             justify-content: center;
             width: 100%;
+        }
+        .inscricao-container label, .inscricao-container .form-group label, .inscricao-container .inscricao-numero, .inscricao-container .inscricao-sub {
+            color: #351c75 !important;
+        }
+        .btn-proximo, .btn-voltar {
+            background: linear-gradient(90deg, #351c75 0%, #b3a0d7 100%) !important;
+            color: #fff !important;
+            border: none !important;
+            box-shadow: 0 2px 8px #b3a0d7 !important;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-proximo:hover, .btn-voltar:hover {
+            background: linear-gradient(90deg, #b3a0d7 0%, #351c75 100%) !important;
+            color: #fff !important;
+        }
+        .inscricao-container input, .inscricao-container select {
+            border: 1.5px solid #351c75;
+            color: #222;
+            background: #fff;
+            box-shadow: 0 2px 8px #b3a0d722;
+            transition: border 0.2s, box-shadow 0.2s;
+            border-radius: 12px;
+            padding: 12px 18px;
+            font-size: 1.08em;
+            font-family: 'Wise', Arial, sans-serif;
+            outline: none;
+            appearance: none;
+        }
+        .inscricao-container input::placeholder {
+            color: #b3a0d7;
+            opacity: 1;
+        }
+        }
+        .inscricao-container input:focus, .inscricao-container select:focus {
+            border: 2px solid #351c75;
+            box-shadow: 0 4px 16px #b3a0d7;
+        }
         }
         /* INPUTS E SELECTS CENTRALIZADOS */
         .inscricao-container input, .inscricao-container select {
@@ -56,7 +96,7 @@
             min-width: 260px;
             padding: 10px 12px;
             border-radius: 10px;
-            border: 1.5px solid #e91e63;
+            border: 1.5px solid #351c75;
             font-size: 1.08em;
             font-family: 'Wise', 'Segoe UI', Arial, sans-serif;
             background: #fff;
@@ -69,19 +109,19 @@
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23351c75" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
             background-repeat: no-repeat;
             background-position: right 14px center;
             background-size: 22px 22px;
         }
         .inscricao-container input:focus, .inscricao-container select:focus {
-            border: 1.5px solid #e91e63;
+            border: 1.5px solid #351c75;
         }
         /* BOTÕES PARALELEPÍPEDO */
         .btn-voltar, .btn-proximo {
             min-width: 220px;
             min-height: 44px;
-            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            background: linear-gradient(90deg, #351c75 0%, #b3a0d7 100%);
             color: #fff;
             border: none;
             border-radius: 14px;
@@ -99,14 +139,14 @@
         }
         .btn-voltar {
             background: #fff;
-            color: #e91e63;
-            border: 1.5px solid #f8bbd0;
+            color: #351c75;
+            border: 1.5px solid #b3a0d7;
         }
         .btn-proximo {
-            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            background: linear-gradient(90deg, #351c75 0%, #b3a0d7 100%);
         }
         .btn-proximo:hover, .btn-voltar:hover {
-            background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
+            background: linear-gradient(90deg, #b3a0d7 0%, #351c75 100%);
             color: #fff;
             box-shadow: 0 6px 24px rgba(233,30,99,0.16);
             transform: translateY(-2px) scale(1.04);
@@ -115,7 +155,7 @@
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23351c75" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
             background-repeat: no-repeat;
             background-position: right 14px center;
             background-size: 22px 22px;
@@ -140,7 +180,7 @@
     <script src="/static/assistant.js"></script>
     <header class="main-header">
         <div class="header-logos">
-            <img src="/static/logo-rio-elas.png" alt="Logo Rio+Elas" class="logo">
+            <img src="/static/logo_fgm.png" alt="Logo FGM" class="logo">
             <img src="/static/logo-prefeitura.png" alt="Prefeitura do Rio" class="logo-prefeitura-topo">
         </div>
     </header>
@@ -156,7 +196,7 @@
                 <label for="nome">Nome Completo *</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required maxlength="50">
                 {% if erro_nome %}
-                <div class="balao-erro" id="nome-balao-erro" style="display:block; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;">{{ erro_nome }}</div>
+                <div class="balao-erro" id="nome-balao-erro" style="display:block; position:relative; background:#f3f0fa; color:#351c75; border:1px solid #351c75; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px #b3a0d7; margin-top:6px;">{{ erro_nome }}</div>
                 {% endif %}
             </div>
             <div class="form-group">
@@ -172,19 +212,19 @@
             <div class="form-group">
                 <label for="cpf">CPF *</label>
                 <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
-                <div class="balao-erro" id="cpf-balao-erro" style="display:none; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;">CPF inválido</div>
+                <div class="balao-erro" id="cpf-balao-erro" style="display:none; position:relative; background:#f3f0fa; color:#351c75; border:1px solid #351c75; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px #b3a0d7; margin-top:6px;">CPF inválido</div>
             </div>
             <div class="form-group">
                 <label for="nascimento">Data de Nascimento *</label>
                 <input type="text" id="nascimento" name="nascimento" placeholder="dd/mm/aaaa" required maxlength="10" pattern="\d{2}/\d{2}/\d{4}" oninvalid="this.setCustomValidity('Informe uma data válida no formato dd/mm/aaaa e idade entre 18 e 90 anos')" oninput="this.setCustomValidity('')">
                 {% if erro_nascimento %}
-                <div class="balao-erro" id="nascimento-balao-erro" style="display:block; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;">{{ erro_nascimento }}</div>
+                <div class="balao-erro" id="nascimento-balao-erro" style="display:block; position:relative; background:#f3f0fa; color:#351c75; border:1px solid #351c75; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px #b3a0d7; margin-top:6px;">{{ erro_nascimento }}</div>
                 {% endif %}
             </div>
             <div class="form-group">
                 <label for="whatsapp">WhatsApp *</label>
                 <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" maxlength="15" pattern="\(\d{2}\) \d{5}-\d{4}" required>
-                <div class="balao-erro" id="whatsapp-balao-erro" style="display:none; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;"></div>
+                <div class="balao-erro" id="whatsapp-balao-erro" style="display:none; position:relative; background:#f3f0fa; color:#351c75; border:1px solid #351c75; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px #b3a0d7; margin-top:6px;"></div>
                     <script>
                     // Validação de CPF
                     function validarCPF(cpf) {
@@ -302,8 +342,8 @@
                             balao.style.display = 'block';
                             balao.style.position = 'absolute';
                             balao.style.background = '#fff0f3';
-                            balao.style.color = '#e91e63';
-                            balao.style.border = '1px solid #e91e63';
+                            balao.style.color = '#351c75';
+                            balao.style.border = '1px solid #351c75';
                             balao.style.borderRadius = '8px';
                             balao.style.padding = '7px 12px';
                             balao.style.fontSize = '0.98em';
@@ -357,7 +397,7 @@
             <div class="form-group">
                 <label for="email">E-mail *</label>
                 <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
-                <div class="balao-erro" id="email-balao-erro" style="display:none; position:relative; background:#fff0f3; color:#e91e63; border:1px solid #e91e63; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px rgba(233,30,99,0.08); margin-top:6px;"></div>
+                <div class="balao-erro" id="email-balao-erro" style="display:none; position:relative; background:#f3f0fa; color:#351c75; border:1px solid #351c75; border-radius:8px; padding:7px 12px; font-size:0.98em; box-shadow:0 2px 8px #b3a0d7; margin-top:6px;"></div>
             </div>
             <div class="form-btns">
                 <button type="button" class="btn-voltar">&lt; VOLTAR</button>
@@ -374,19 +414,19 @@
     .progress-bar {
         width: 100%;
         height: 8px;
-        background: #f8bbd0;
+        background: #b3a0d7;
         border-radius: 8px;
         margin-bottom: 24px;
         overflow: hidden;
     }
     .progress {
         height: 100%;
-        background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+        background: linear-gradient(90deg, #351c75 0%, #b3a0d7 100%);
         border-radius: 8px;
         transition: width 0.3s;
     }
     .inscricao-numero {
-        color: #e91e63;
+        color: #351c75;
         font-size: 1.1em;
         margin-bottom: 18px;
         font-weight: 500;

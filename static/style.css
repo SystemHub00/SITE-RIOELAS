@@ -1,8 +1,8 @@
 /* Select estilizado para inputs bonitos */
 select {
-    background: #fff0f6;
-    color: #e91e63;
-    border: 1.5px solid #f8bbd0;
+    background: #f3f0fa;
+    color: #351c75;
+    border: 1.5px solid #b3a0d7;
     border-radius: 12px;
     padding: 16px 18px;
     font-size: 1.08em;
@@ -12,16 +12,16 @@ select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    box-shadow: 0 2px 8px rgba(233,30,99,0.08);
+    box-shadow: 0 2px 8px rgba(53,28,117,0.08);
     margin-bottom: 8px;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23351c75" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 18px center;
     background-size: 24px 24px;
 }
 select:focus {
-    border: 2px solid #e91e63;
-    box-shadow: 0 4px 16px rgba(233,30,99,0.12);
+    border: 2px solid #351c75;
+    box-shadow: 0 4px 16px rgba(53,28,117,0.12);
 }
 .cta-btn {
     animation: pulse-scale 1s infinite alternate;
@@ -85,7 +85,7 @@ select:focus {
     }
     .cta-btn:active, .cta-btn:focus {
         outline: none;
-        box-shadow: 0 0 0 2px #e91e6333;
+        box-shadow: 0 0 0 2px #351c7533;
     }
     .cta-btn {
         overflow: hidden;
@@ -215,18 +215,18 @@ body {
     font-family: 'Wise', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
-    color: #e91e63;
+    background: linear-gradient(120deg, #fff 60%, #b3a0d7 100%);
+    color: #351c75;
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 .main-header {
     background: #fff;
-    border-bottom: 4px solid #e91e63;
+    border-bottom: 4px solid #351c75;
     padding: 24px 0 0 0;
     text-align: center;
-    box-shadow: 0 4px 24px 0 rgba(233,30,99,0.07);
+    box-shadow: 0 4px 24px 0 rgba(53,28,117,0.07);
 }
 /* Ajuste das logos lado a lado e responsivas */
 .header-logos {
@@ -300,25 +300,25 @@ header nav ul {
     gap: 30px;
 }
 .main-header nav ul li a {
-    color: #e91e63;
+    color: #351c75;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1em;
     letter-spacing: 0.5px;
     transition: color 0.2s, text-shadow 0.2s;
-    text-shadow: 0 1px 0 #f8bbd0;
+    text-shadow: 0 1px 0 #b3a0d7;
 }
 .main-header nav ul li a:hover {
-    color: #ff69b4;
-    text-shadow: 0 2px 8px #f8bbd0;
+    color: #351c75;
+    text-shadow: 0 2px 8px #b3a0d7;
 }
 .hero-section {
-    background: linear-gradient(120deg, #fff0f6 60%, #f8bbd0 100%);
-    color: #e91e63;
+    background: linear-gradient(120deg, #f3f0fa 60%, #b3a0d7 100%);
+    color: #351c75;
     padding: 48px 20px 32px 20px;
     text-align: center;
     border-radius: 0 0 32px 32px;
-    box-shadow: 0 8px 32px 0 rgba(233,30,99,0.07);
+    box-shadow: 0 8px 32px 0 #b3a0d7;
     position: relative;
     overflow: hidden;
 }
@@ -327,8 +327,8 @@ header nav ul {
     font-weight: 900;
     margin-bottom: 18px;
     letter-spacing: -1px;
-    color: #e91e63;
-    text-shadow: 0 2px 8px #f8bbd0;
+    color: #351c75;
+    text-shadow: 0 2px 8px #b3a0d7;
 }
 .hero-section p {
     font-size: 1.25em;
@@ -336,7 +336,7 @@ header nav ul {
     margin-bottom: 28px;
 }
 .destaque {
-    color: #e91e63;
+    color: #351c75;
     font-weight: 700;
     letter-spacing: 0.5px;
 }
@@ -353,17 +353,17 @@ header nav ul {
     padding: 12px 28px;
     font-size: 1.08em;
     font-weight: 600;
-    color: #e91e63;
-    box-shadow: 0 4px 16px rgba(233,30,99,0.07);
+    color: #351c75;
+    box-shadow: 0 4px 16px #b3a0d7;
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 2px solid #f8bbd0;
+    border: 2px solid #b3a0d7;
     transition: box-shadow 0.2s, border 0.2s;
 }
 .hero-section .benefit:hover {
-    box-shadow: 0 8px 32px #ffb6c1;
-    border: 2px solid #e91e63;
+    box-shadow: 0 8px 32px #b3a0d7;
+    border: 2px solid #351c75;
 }
 .icon-svg {
     display: inline-flex;
@@ -416,7 +416,7 @@ main {
 
 .cta-btn {
     display: inline-block;
-    background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+    background: linear-gradient(90deg, #351c75 0%, #b3a0d7 100%);
     color: #fff;
     padding: 18px 48px;
     border-radius: 32px;
@@ -425,14 +425,14 @@ main {
     text-decoration: none;
     transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
     margin-top: 18px;
-    box-shadow: 0 4px 16px rgba(233,30,99,0.10);
+    box-shadow: 0 4px 16px rgba(53,28,117,0.10);
     letter-spacing: 0.5px;
     border: none;
     outline: none;
 }
 .cta-btn:hover {
-    background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
-    box-shadow: 0 8px 32px #ffb6c1;
+    background: linear-gradient(90deg, #b3a0d7 0%, #351c75 100%);
+    box-shadow: 0 8px 32px #351c75;
     transform: translateY(-2px) scale(1.03);
 }
 .cursos-section {
@@ -441,13 +441,13 @@ main {
 }
 .cursos-title {
     font-size: 1.15em;
-    color: #e91e63;
+    color: #351c75;
     margin-bottom: 8px;
 }
 .cursos-destaque {
     font-size: 1.35em;
     font-weight: 700;
-    color: #e91e63;
+    color: #351c75;
     margin-bottom: 24px;
 }
 .contato-section {
@@ -459,8 +459,8 @@ main {
     max-width: 180px;
 }
 footer {
-    background: #e91e63;
-    color: #fff;
+    background: transparent;
+    color: #351c75;
     text-align: center;
     padding: 18px 0;
     margin-top: 40px;
@@ -469,7 +469,7 @@ footer {
     bottom: 0;
     left: 0;
     font-size: 1em;
-    box-shadow: 0 -2px 16px #e91e63aa;
+    box-shadow: 0 -2px 16px #351c75aa;
 }
 @media (max-width: 900px) {
     main {

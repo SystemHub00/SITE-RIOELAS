@@ -9,16 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(120deg, #fff 60%, #f8bbd0 100%);
+            background: linear-gradient(120deg, #fff 60%, #351c75 100%);
             font-family: 'Wise', Arial, sans-serif;
         }
         h1, h2, h3, h4, h5, h6 {
-            color: #e91e63;
+            color: #351c75;
             font-family: 'Wise', Arial, sans-serif;
         }
         .cta-btn {
             display: inline-block;
-            background: linear-gradient(90deg, #e91e63 0%, #ffb6c1 100%);
+            background: linear-gradient(90deg, #351c75 0%, #b3a0d7 100%);
             color: #fff;
             border: none;
             border-radius: 12px;
@@ -27,7 +27,7 @@
             font-weight: 800;
             font-family: 'Wise', Arial, sans-serif;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+            box-shadow: 0 2px 8px rgba(53,28,117,0.10);
             letter-spacing: 0.5px;
             transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
             outline: none;
@@ -36,27 +36,27 @@
             text-decoration: none;
         }
         .cta-btn:hover {
-            background: linear-gradient(90deg, #ff69b4 0%, #e91e63 100%);
-            box-shadow: 0 4px 16px rgba(233,30,99,0.12);
+            background: linear-gradient(90deg, #b3a0d7 0%, #351c75 100%);
+            box-shadow: 0 4px 16px rgba(53,28,117,0.12);
         }
         .ganhos-box, .cursos-section, .contato-section {
-            background: #fff0f6;
+            background: #f3f0fa;
             border-radius: 16px;
-            border: 2px solid #f8bbd0;
+            border: 2px solid #b3a0d7;
             margin: 24px 0;
             padding: 18px 22px;
         }
         .ganhos-list li, .cursos-title, .cursos-destaque, .contato-section p, .contato-section h2 {
-            color: #e91e63;
+            color: #351c75;
         }
         .icon-svg svg {
-            stroke: #e91e63 !important;
+            stroke: #351c75 !important;
         }
         .main-header, footer {
             background: #fff;
         }
         footer p {
-            color: #e91e63;
+            color: #351c75;
         }
     </style>
 </head>
@@ -64,26 +64,33 @@
     <script src="/static/assistant.js"></script>
     <header class="main-header">
         <div class="header-logos">
-            <img src="/static/logo-rio-elas.png" alt="Logo Rio+Elas" class="logo">
+            <img src="/static/logo_fgm.png" alt="Logo FGM" class="logo">
             <img src="/static/logo-prefeitura.png" alt="Prefeitura do Rio" class="logo-prefeitura-topo">
         </div>
     </header>
     <main>
-        <section id="hero" class="hero-section">
-            <h1>TRANSFORME SUA VIDA ATRAVÉS DA BELEZA!</h1>
-            <p>Participe do <span class="destaque">Projeto Rio +Elas</span> e aprenda uma nova profissão com cursos gratuitos de beleza oferecidos pela Prefeitura do Rio de Janeiro.</p>
-            <div class="benefits">
-                <div class="benefit">
-                    <span class="icon-svg"> <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <strong>100% Gratuito</strong>
+        <section id="hero" class="hero-section" style="background: linear-gradient(120deg, #fff 60%, #351c75 100%); border-radius: 24px; box-shadow: 0 4px 24px rgba(53,28,117,0.08); padding: 36px 0 32px 0; margin-bottom: 32px;">
+            <div style="text-align:center; margin-bottom: 18px;">
+                <span style="background: #351c75; color: #fff; font-weight: bold; font-size: 1.1em; padding: 8px 24px; border-radius: 24px; letter-spacing: 1px; box-shadow: 0 2px 8px #351c7522; display: inline-block;">PROJETO: RIO+ELAS</span>
+            </div>
+            <h1 style="font-size:2.5em; font-weight:900; text-align:center; margin-bottom: 10px; text-shadow: 0 2px 8px #fff, 0 1px 0 #351c7522;">TRANSFORME SUA VIDA ATRAVÉS DA BELEZA!</h1>
+            <h2 style="font-size:1.3em; font-weight:600; color:#351c75; text-align:center; margin-bottom: 28px;">Participe do Projeto Rio +Elas e aprenda uma nova profissão com cursos gratuitos de beleza oferecidos pela Prefeitura do Rio de Janeiro.</h2>
+            <div class="benefits" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-top: 18px;">
+                <div class="benefit" style="background: #fff; border-radius: 18px; box-shadow: 0 2px 12px #351c7522; padding: 18px 22px; min-width: 260px; max-width: 320px; text-align: left; display: flex; align-items: flex-start; gap: 12px;">
+                    <span class="icon-svg" style="margin-top:2px;"> <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#351c75" stroke-width="2"/><path d="m8 12 3 3 5-6" stroke="#351c75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span>Formação profissional completa em uma das áreas mais valorizadas do mercado.</span>
                 </div>
-                <div class="benefit">
-                    <span class="icon-svg"> <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#222" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <strong>Certificado Incluso</strong>
+                <div class="benefit" style="background: #fff; border-radius: 18px; box-shadow: 0 2px 12px #351c7522; padding: 18px 22px; min-width: 260px; max-width: 320px; text-align: left; display: flex; align-items: flex-start; gap: 12px;">
+                    <span class="icon-svg" style="margin-top:2px;"> <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#351c75" stroke-width="2"/><path d="m8 12 3 3 5-6" stroke="#351c75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span>Kit com materiais profissionais para você iniciar sua carreira</span>
                 </div>
-                <div class="benefit">
-                    <span class="icon-svg"> <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#222" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <strong>Kit Profissional</strong>
+                <div class="benefit" style="background: #fff; border-radius: 18px; box-shadow: 0 2px 12px #351c7522; padding: 18px 22px; min-width: 260px; max-width: 320px; text-align: left; display: flex; align-items: flex-start; gap: 12px;">
+                    <span class="icon-svg" style="margin-top:2px;"> <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#351c75" stroke-width="2"/><path d="m8 12 3 3 5-6" stroke="#351c75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span>Certificado reconhecido pela Prefeitura do Rio de Janeiro</span>
+                </div>
+                <div class="benefit" style="background: #fff; border-radius: 18px; box-shadow: 0 2px 12px #351c7522; padding: 18px 22px; min-width: 260px; max-width: 320px; text-align: left; display: flex; align-items: flex-start; gap: 12px;">
+                    <span class="icon-svg" style="margin-top:2px;"> <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#351c75" stroke-width="2"/><path d="m8 12 3 3 5-6" stroke="#351c75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span>Apoio para seu desenvolvimento profissional e geração de renda</span>
                 </div>
             </div>
         </section>
@@ -98,10 +105,10 @@
             <div class="ganhos-box">
                 <h2>O que você vai ganhar?</h2>
                 <ul class="ganhos-list">
-                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Formação profissional completa em uma das áreas mais valorizadas do mercado</li>
-                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Kit com materiais profissionais para você iniciar sua carreira</li>
-                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Certificado reconhecido pela Prefeitura do Rio de Janeiro</li>
-                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#e91e63" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#e91e63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Apoio para seu desenvolvimento profissional e geração de renda</li>
+                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#351c75" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#351c75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Formação profissional completa em uma das áreas mais valorizadas do mercado</li>
+                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#351c75" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#351c75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Kit com materiais profissionais para você iniciar sua carreira</li>
+                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#351c75" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#351c75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Certificado reconhecido pela Prefeitura do Rio de Janeiro</li>
+                    <li><span class="icon-svg"><svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.333A8.333 8.333 0 1 0 10 1.667a8.333 8.333 0 0 0 0 16.666Z" stroke="#351c75" stroke-width="2"/><path d="m6.667 10 2.5 2.5 4.166-5" stroke="#351c75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Apoio para seu desenvolvimento profissional e geração de renda</li>
                 </ul>
             </div>
         </section>
@@ -110,8 +117,8 @@
             <img src="https://investidordesucesso.fgmcursos.com.br/assets/logo-rj-C4on5mTt.png" alt="Prefeitura do Rio de Janeiro" class="logo-prefeitura">
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Rio+Elas. Todos os direitos reservados.</p>
+    <footer style="border-top: 4px solid #351c75; background: linear-gradient(90deg, #fff 60%, #b3a0d7 100%);">
+        <p style="color: #351c75;">&copy; 2025 Rio+Elas. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
