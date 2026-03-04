@@ -37,7 +37,7 @@ def append_to_sheet(data):
     existing_header = sheet.row_values(1)
     if existing_header != header:
         if existing_header:
-            sheet.delete_row(1)
+            sheet.delete_rows(1)
         sheet.insert_row(header, 1)
     # Garante que os dados estejam na ordem do cabeçalho
     # Espera-se que 'data' já venha na ordem correta (igual ao header, exceto Data/Hora Envio)
