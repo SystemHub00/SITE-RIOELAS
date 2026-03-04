@@ -3,7 +3,9 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 def get_gsheet_client():
-    creds_path = os.environ.get("GOOGLE_SHEETS_CREDS", "plated-field-474017-b8-e00d977b2612.json")
+    creds_path = os.environ.get("GOOGLE_SHEETS_CREDS", r"C:/Users/lucas/OneDrive/Documentos/SITE-RIOELAS-TESTE/identificador-488615-c1ab55e9b31b.json")
+    if not os.path.exists(creds_path):
+        raise FileNotFoundError(f"Arquivo de credencial não encontrado: {creds_path}\nVerifique o caminho ou a variável de ambiente GOOGLE_SHEETS_CREDS.")
     scopes = [
         'https://www.googleapis.com/auth/spreadsheets',
         'https://www.googleapis.com/auth/drive'
