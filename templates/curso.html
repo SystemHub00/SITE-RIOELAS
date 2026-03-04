@@ -112,6 +112,25 @@
             outline: none;
             box-sizing: border-box;
         }
+        .styled-input {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            max-width: 420px;
+            min-width: 260px;
+            padding: 18px 16px;
+            border-radius: 12px;
+            border: 1.5px solid #351c75;
+            font-size: 1.08em;
+            font-family: 'Wise', Arial, sans-serif;
+            background: #ede7f6;
+            color: #222;
+            font-weight: bold;
+            transition: border 0.2s;
+            outline: none;
+            box-sizing: border-box;
+        }
         .form-btns {
             display: flex;
             flex-direction: row;
@@ -234,6 +253,18 @@
                     <label for="horario">Horário</label>
                     <input type="text" id="horario" name="horario" readonly style="background:#ede7f6;color:#351c75;font-weight:bold;" placeholder="Selecione a turma" />
                 </div>
+                <div class="form-group">
+                    <label for="data_inicio">Data de Início</label>
+                    <input type="text" id="data_inicio" name="data_inicio" readonly class="styled-input" placeholder="Selecione a turma" />
+                </div>
+                <div class="form-group">
+                    <label for="encerramento">Encerramento</label>
+                    <input type="text" id="encerramento" name="encerramento" readonly class="styled-input" placeholder="Selecione a turma" />
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" readonly class="styled-input" placeholder="Selecione a turma" />
+                </div>
             <div class="form-btns">
                 <button type="button" class="btn-voltar">&lt; Voltar</button>
                 <button type="submit" class="btn-proximo">Próximo <span style="font-size:1.2em;vertical-align:middle;">&#8594;</span></button>
@@ -249,14 +280,20 @@
                 curso: 'TRANSISTA',
                 local: 'CERES FUTEBOL CLUBE | ILHA DO GOVERNADOR',
                 dias: 'segunda, terça',
-                horario: '10h às 11h'
+                horario: '10h às 11h',
+                data_inicio: '02/03/2026',
+                encerramento: '07/04/2026',
+                endereco: 'Madureira / bloco 01'
             },
             {
                 turma: 'TURMA EXTENSÃO DE CÍLIOS 01',
                 curso: 'EXTENSÃO DE CÍLIOS',
                 local: 'PROJETO DJALMA | BARRA DA TIJUCA',
                 dias: 'segunda, terça',
-                horario: '09h às 12h'
+                horario: '09h às 12h',
+                data_inicio: '09/03/2026',
+                encerramento: '12/05/2026',
+                endereco: 'Ilha do governador / bloco 02'
             }
         ];
 
@@ -274,12 +311,18 @@
         const cursoSelect = document.getElementById('curso');
         const turmaSelect = document.getElementById('turma');
         const horarioInput = document.getElementById('horario');
+        const dataInicioInput = document.getElementById('data_inicio');
+        const encerramentoInput = document.getElementById('encerramento');
+        const enderecoInput = document.getElementById('endereco');
 
         localSelect.addEventListener('change', function() {
             const local = this.value;
             cursoSelect.innerHTML = '<option value="">Selecione o curso</option>';
             turmaSelect.innerHTML = '<option value="">Selecione a turma</option>';
             horarioInput.value = '';
+            dataInicioInput.value = '';
+            encerramentoInput.value = '';
+            enderecoInput.value = '';
             if (cursosPorLocal[local]) {
                 cursosPorLocal[local].forEach(curso => {
                     const opt = document.createElement('option');
@@ -295,6 +338,9 @@
             const curso = this.value;
             turmaSelect.innerHTML = '<option value="">Selecione a turma</option>';
             horarioInput.value = '';
+            dataInicioInput.value = '';
+            encerramentoInput.value = '';
+            enderecoInput.value = '';
             const key = local + '|' + curso;
             if (turmasPorCursoLocal[key]) {
                 turmasPorCursoLocal[key].forEach(turma => {
@@ -311,8 +357,14 @@
             const turmaObj = turmasInfo.find(t => t.turma === turma);
             if (turmaObj) {
                 horarioInput.value = turmaObj.dias + ' | ' + turmaObj.horario;
+                dataInicioInput.value = turmaObj.data_inicio;
+                encerramentoInput.value = turmaObj.encerramento;
+                enderecoInput.value = turmaObj.endereco;
             } else {
                 horarioInput.value = '';
+                dataInicioInput.value = '';
+                encerramentoInput.value = '';
+                enderecoInput.value = '';
             }
         });
 
