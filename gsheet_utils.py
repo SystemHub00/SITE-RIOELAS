@@ -27,22 +27,23 @@ def append_to_sheet(data):
     sheet_id = os.environ.get("GOOGLE_SHEETS_ID", "1DOiy5jkpjfOooUHs5pvsyopDeGDql1hQYVx0js_6Ob0")
     sheet_name = os.environ.get("GOOGLE_SHEETS_TAB", "DADOS")
     sheet = client.open_by_key(sheet_id).worksheet(sheet_name)
-    # Cabeçalho desejado
+    # Cabeçalho correto conforme planilha (ajuste conforme sua planilha)
     header = [
-        'Data/Hora Envio',
-        'Protocolo', 'Nome', 'CPF', 'Nascimento', 'Whatsapp', 'Email',
+        'Data/Hora Envio', 'Protocolo', 'Nome', 'Gênero', 'CPF', 'Nascimento', 'Whatsapp', 'Email',
         'CEP', 'Endereço', 'Número', 'Complemento', 'Bairro', 'Cidade', 'Estado',
-        'Curso', 'Como Conheceu'
+        'Local do Curso', 'Curso', 'Turma', 'Horário', 'Data de Início', 'Encerramento', 'Endereço do Curso', 'Como Conheceu'
     ]
-    # Verifica se o cabeçalho já existe
+    # Só insere o cabeçalho se não existir ou estiver diferente
     existing_header = sheet.row_values(1)
     if existing_header != header:
+        if existing_header:
+            sheet.delete_row(1)
         sheet.insert_row(header, 1)
-    # Limite de leads removido: agora pode salvar quantas inscrições quiser
-    # Adiciona data/hora atual no início dos dados
+    # Garante que os dados estejam na ordem do cabeçalho
+    # Espera-se que 'data' já venha na ordem correta (igual ao header, exceto Data/Hora Envio)
     from datetime import datetime
     now = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     data_to_save = [now] + data
-    # Procura a próxima linha vazia
+    # Adiciona na próxima linha disponível
     next_row = len(sheet.get_all_values()) + 1
     sheet.insert_row(data_to_save, next_row)
