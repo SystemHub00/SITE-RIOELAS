@@ -3,19 +3,6 @@ import csv
 import uuid
 
 from gsheet_utils import append_to_sheet
-import os
-def ensure_gsheets_json():
-    creds_env = os.environ.get('GOOGLE_SHEETS_CREDS_CONTENT')
-    creds_path = os.environ.get('GOOGLE_SHEETS_CREDS', r'C:/Users/lucas/OneDrive/Documentos/SITE-RIOELAS-TESTE/identificador-488615-c1ab55e9b31b.json')
-    if creds_env and not os.path.exists(creds_path):
-        with open(creds_path, 'w', encoding='utf-8') as f:
-            f.write(creds_env)
-        print(f'Arquivo de credencial criado em: {creds_path}')
-    else:
-        print('Arquivo de credencial já existe ou variável de ambiente não definida.')
-
-ensure_gsheets_json()
-print('Arquivos no diretório atual:', os.listdir())
 import traceback
 
 app = Flask(__name__)
