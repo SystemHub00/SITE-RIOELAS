@@ -93,6 +93,10 @@ def curso():
         session['local'] = request.form.get('local')
         session['curso'] = request.form.get('curso')
         session['turma'] = request.form.get('turma')
+        session['horario'] = request.form.get('horario')
+        session['data_inicio'] = request.form.get('data_inicio')
+        session['encerramento'] = request.form.get('encerramento')
+        session['endereco_curso'] = request.form.get('endereco')
         return redirect(url_for('revisao'))
     return render_template('curso.html')
 
@@ -105,13 +109,16 @@ def revisao():
 
 @app.route('/confirmacao')
 def confirmacao():
+    from datetime import datetime
     # Gera protocolo único
     protocolo = str(uuid.uuid4())[:8]
     session['protocolo'] = protocolo
-    # Monta os dados na ordem desejada
+    data_envio = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     dados = [
+        data_envio,
         protocolo,
         session.get('nome',''),
+        session.get('genero',''),
         session.get('cpf',''),
         session.get('nascimento',''),
         session.get('whatsapp',''),
@@ -123,8 +130,13 @@ def confirmacao():
         session.get('bairro',''),
         session.get('cidade',''),
         session.get('estado',''),
+        session.get('local',''),
         session.get('curso',''),
-        session.get('como_conheceu','')
+        session.get('turma',''),
+        session.get('horario',''),
+        session.get('data_inicio',''),
+        session.get('encerramento',''),
+        session.get('endereco_curso',''),
     ]
     try:
         append_to_sheet(dados)
